@@ -39,5 +39,14 @@ public class bulletScript : MonoBehaviour
             Destroy(gameObject);
 
         }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Cam")
+        {
+            rb.linearVelocity = -rb.linearVelocity;
+        }
     }
 }

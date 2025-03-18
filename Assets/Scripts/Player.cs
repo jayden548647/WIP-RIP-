@@ -7,19 +7,30 @@ public class Player : MonoBehaviour
     [SerializeField] float startDashTime = 5f;
     [SerializeField] float dashSpeed = 10f;
     float currentDashTime;
+    public float healthMultiplier;
+    public float health;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     public bool canDash;
     void Start()
     {
+        gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
+        if(healthMultiplier == 0)
+        {
+            healthMultiplier = 1;
+        }
+        health = 50 * healthMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
+        if(health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -102,5 +113,20 @@ public class Player : MonoBehaviour
         print("Dash2");
         rb.linearVelocity = new Vector2(0f, 0f);
         canDash = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack")
+        {
+            health -= 10;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            health -= 10;
+        }
     }
 }

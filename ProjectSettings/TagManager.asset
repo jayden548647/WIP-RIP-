@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Wall
+  - Attack
+  - EnemyAttack
+  - Enemy
+  - Cam
+  - MeleeAttack
   layers:
   - Default
   - TransparentFX
