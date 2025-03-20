@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] float dashSpeed = 10f;
     float currentDashTime;
     public float healthMultiplier;
+    public float defense;
     public float health;
+    public float roomsCleared;
+    private int rng;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     public bool canDash;
@@ -20,7 +25,19 @@ public class Player : MonoBehaviour
         {
             healthMultiplier = 1;
         }
-        health = 50 * healthMultiplier;
+        if (defense == 0)
+        {
+            defense = 1;
+        }
+        if (Manager.instance.playerHealth == 0)
+        {
+            health = 50 * healthMultiplier;
+        }
+        else
+        {
+            health = Manager.instance.GetHealth();
+        }
+        roomsCleared = Manager.instance.GetRoom();
     }
 
     // Update is called once per frame
@@ -29,7 +46,7 @@ public class Player : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(health <= 0)
         {
-            gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -117,16 +134,27 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack")
+        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack" || collision.gameObject.tag == "MovingEnemy")
         {
-            health -= 10;
+            health -= 10 / defense;
+            Manager.instance.SetHealth(health);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "MovingEnemy")
         {
-            health -= 10;
+            health -= 10 / defense;
+
+        Manager.instance.SetHealth(health);
+        }
+        if(collision.gameObject.tag == "Finish")
+        {
+            roomsCleared++;
+            Manager.instance.SetRoom(roomsCleared);
+            rng = Random.Range(2, 7);
+            SceneManager.LoadScene(rng);
         }
     }
+    
 }

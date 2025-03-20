@@ -39,7 +39,7 @@ public class bulletScript : MonoBehaviour
             Destroy(gameObject);
 
         }
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "MovingEnemy" || collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }

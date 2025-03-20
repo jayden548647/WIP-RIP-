@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Cam
   - MeleeAttack
+  - MovingEnemy
   layers:
   - Default
   - TransparentFX
