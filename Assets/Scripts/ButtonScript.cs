@@ -24,6 +24,9 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         Manager.instance.SetRoom(0);
+        Manager.instance.SetEnemies(0);
+        Manager.instance.SetTempDefense(0);
+        Manager.instance.SetTempDamageBoost(0);
     }
 
     public void EndlessClick()
@@ -38,5 +41,25 @@ public class ButtonScript : MonoBehaviour
     {
         print("quit");
         Application.Quit();
+    }
+
+    public void UnpauseClick()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void MenuClick()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+    }
+    public void HubClick()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        Manager.instance.SetRoom(0);
+        Manager.instance.SetEnemies(0);
+        Manager.instance.SetTempDefense(0);
+        Manager.instance.SetTempDamageBoost(0);
     }
 }

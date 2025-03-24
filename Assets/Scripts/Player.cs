@@ -11,12 +11,16 @@ public class Player : MonoBehaviour
     float currentDashTime;
     public float healthMultiplier;
     public float defense;
+    public float tempDefense;
     public float health;
     public float roomsCleared;
     private int rng;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     public bool canDash;
+    public GameObject upgradeMenu;
+    public GameObject shopMenu;
+    
     void Start()
     {
         gameObject.SetActive(true);
@@ -25,15 +29,20 @@ public class Player : MonoBehaviour
         {
             healthMultiplier = 1;
         }
-        if (defense == 0)
+        if (Manager.instance.GetDefense() == 0)
         {
-            defense = 1;
+            defense = 1 + Manager.instance.GetTempDefense();
+        }
+        if(Manager.instance.GetDefense() > 0)
+        {
+            defense = Manager.instance.GetDefense() + Manager.instance.GetTempDefense();
         }
         if (Manager.instance.playerHealth == 0)
         {
             health = 50 * healthMultiplier;
+            Manager.instance.SetHealth(health);
         }
-        else
+        if (Manager.instance.playerHealth > 0)
         {
             health = Manager.instance.GetHealth();
         }
@@ -139,6 +148,14 @@ public class Player : MonoBehaviour
             health -= 10 / defense;
             Manager.instance.SetHealth(health);
         }
+        if(collision.gameObject.tag == "UpgradeOpen")
+        {
+            upgradeMenu.gameObject.SetActive(true);
+        }
+        if (collision.gameObject.tag == "ShopOpen")
+        {
+            shopMenu.gameObject.SetActive(true);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -152,9 +169,41 @@ public class Player : MonoBehaviour
         {
             roomsCleared++;
             Manager.instance.SetRoom(roomsCleared);
-            rng = Random.Range(2, 7);
-            SceneManager.LoadScene(rng);
+            if (roomsCleared == 49)
+            {
+                SceneManager.LoadScene(9);
+            }
+            else
+            {
+                rng = Random.Range(3, 8);
+                SceneManager.LoadScene(rng);
+            }
         }
+        if(collision.gameObject.tag == "Enter")
+        {
+            SceneManager.LoadScene(2);
+        }
+        
     }
     
+    public void FullHeal()
+    {
+        if (Manager.instance.GetEnemies() >= 10)
+        {
+            health = 50 * healthMultiplier;
+            Manager.instance.SetHealth(health);
+            Manager.instance.SetEnemies(Manager.instance.GetEnemies() - 10);
+        }
+    }
+
+    public void DefenseUp()
+    {
+        if(Manager.instance.GetEnemies() >= 40)
+        {
+            tempDefense = tempDefense + 1;
+            Manager.instance.SetTempDefense(tempDefense);
+            Manager.instance.SetEnemies(Manager.instance.GetEnemies() - 40);
+        }
+        
+    }
 }

@@ -11,6 +11,10 @@ TagManager:
   - Cam
   - MeleeAttack
   - MovingEnemy
+  - Pause
+  - Enter
+  - ShopOpen
+  - UpgradeOpen
   layers:
   - Default
   - TransparentFX
