@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8415965175745854219, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8415965175745854219, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1912,7 +1912,7 @@ Transform:
   m_GameObject: {fileID: 628765573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 1}
   m_LocalScale: {x: 15, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2085,7 +2085,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 682638702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2033087436}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: FullHeal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 682638701}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &682638702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,7 +2575,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1038640228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2048240861}
+        m_TargetAssemblyTypeName: Enemy1, Assembly-CSharp
+        m_MethodName: DamageUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1038640227}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1038640228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,7 +3772,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1273292189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2033087436}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: DefenseUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1273292188}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1273292189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4809,9 +4881,12 @@ MonoBehaviour:
   tempDefense: 0
   health: 0
   roomsCleared: 0
+  enemyDefeats: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
-  shopMenu: {fileID: 0}
+  shopMenu: {fileID: 1189671799}
+  healthBuy: {fileID: 1443205288}
+  defenseBuy: {fileID: 2078336465}
 --- !u!50 &2033087437
 Rigidbody2D:
   serializedVersion: 5
@@ -4988,6 +5063,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2189554184192285632, guid: 09583ef9ccf1bf6489241dd85c86f152, type: 3}
+      propertyPath: damageBuy
+      value: 
+      objectReference: {fileID: 1241153730}
     - target: {fileID: 7342632967053845034, guid: 09583ef9ccf1bf6489241dd85c86f152, type: 3}
       propertyPath: m_Name
       value: EnemyA
@@ -4997,6 +5076,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09583ef9ccf1bf6489241dd85c86f152, type: 3}
+--- !u!114 &2048240861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2189554184192285632, guid: 09583ef9ccf1bf6489241dd85c86f152, type: 3}
+  m_PrefabInstance: {fileID: 2048240860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de5556f542bc5b4997c5c883b108deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078336463
 GameObject:
   m_ObjectHideFlags: 0

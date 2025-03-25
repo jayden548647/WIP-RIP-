@@ -1,21 +1,25 @@
+using TMPro;
 using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
     public float health;
     float defeat;
-    float damageBoost;
+    public float damageBoost;
     float tempDamageBoost;
+    public TMP_Text damageBuy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (Manager.instance.GetDamageBoost() == 0)
         {
-            damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
+            damageBoost = 1 + Manager.instance.GetTempDamageBoost();
+            Manager.instance.SetDamageBoost(1);
         }
         else
         {
-            damageBoost = 1 + Manager.instance.GetTempDamageBoost();
+            damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
+            
         }
     }
 
@@ -38,15 +42,20 @@ public class Enemy1 : MonoBehaviour
         }
         if (collision.gameObject.tag == "EnemyAttack")
         {
-            health -= 10 * damageBoost;
+            health -= 10;
         }
     }
 
 
     public void DamageUp()
     {
-        tempDamageBoost = tempDamageBoost + 1;
-        Manager.instance.SetTempDamageBoost(tempDamageBoost);
-        Manager.instance.SetEnemies(Manager.instance.GetEnemies() - 100);
+        if (defeat >= 100)
+        {
+            defeat -= 100;
+            tempDamageBoost = tempDamageBoost + 1;
+            damageBuy.text = "PURCHASED";
+            Manager.instance.SetTempDamageBoost(tempDamageBoost);
+            Manager.instance.SetEnemies(defeat);
+        }
     }
 }

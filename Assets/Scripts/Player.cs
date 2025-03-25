@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,12 +15,15 @@ public class Player : MonoBehaviour
     public float tempDefense;
     public float health;
     public float roomsCleared;
+    public float enemyDefeats;
     private int rng;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
     public bool canDash;
     public GameObject upgradeMenu;
     public GameObject shopMenu;
+    public TMP_Text healthBuy;
+    public TMP_Text defenseBuy;
     
     void Start()
     {
@@ -55,8 +59,9 @@ public class Player : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(health <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(4);
         }
+        enemyDefeats = Manager.instance.GetEnemies();
     }
 
     private void FixedUpdate()
@@ -169,13 +174,13 @@ public class Player : MonoBehaviour
         {
             roomsCleared++;
             Manager.instance.SetRoom(roomsCleared);
-            if (roomsCleared == 49)
+            if (roomsCleared == 50)
             {
-                SceneManager.LoadScene(9);
+                SceneManager.LoadScene(3);
             }
             else
             {
-                rng = Random.Range(3, 8);
+                rng = Random.Range(5, 10);
                 SceneManager.LoadScene(rng);
             }
         }
@@ -188,21 +193,25 @@ public class Player : MonoBehaviour
     
     public void FullHeal()
     {
-        if (Manager.instance.GetEnemies() >= 10)
+        if (enemyDefeats >= 10)
         {
+            enemyDefeats -= 10;
             health = 50 * healthMultiplier;
+            healthBuy.text = "PURCHASED";
             Manager.instance.SetHealth(health);
-            Manager.instance.SetEnemies(Manager.instance.GetEnemies() - 10);
+            Manager.instance.SetEnemies(enemyDefeats);
         }
     }
 
     public void DefenseUp()
     {
-        if(Manager.instance.GetEnemies() >= 40)
+        if(enemyDefeats >= 40)
         {
+            enemyDefeats -= 40;
             tempDefense = tempDefense + 1;
+            defenseBuy.text = "PURCHASED";
             Manager.instance.SetTempDefense(tempDefense);
-            Manager.instance.SetEnemies(Manager.instance.GetEnemies() - 40);
+            Manager.instance.SetEnemies(enemyDefeats);
         }
         
     }

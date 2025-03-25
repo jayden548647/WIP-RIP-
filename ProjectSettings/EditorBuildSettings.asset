@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: e5e948f7364935c4592491e3e981b670
   - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 92e211b51a8e63443af038c585a57dc7
+  - enabled: 1
+    path: Assets/Scenes/GAME OVER.unity
+    guid: 6dda684dd11921b439d84bbd80ab1320
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1

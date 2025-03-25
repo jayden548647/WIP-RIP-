@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     public float tempDefenseValue;
     public float boostValue;
     public float tempBoostValue;
+    public float bitsCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -92,5 +93,13 @@ public class Manager : MonoBehaviour
     public float GetTempDamageBoost()
     {
         return tempBoostValue;
+    }
+    public void SetBits(float bits)
+    {
+        bitsCount = bits;
+    }
+    public float GetBits()
+    {
+        return bitsCount;
     }
 }

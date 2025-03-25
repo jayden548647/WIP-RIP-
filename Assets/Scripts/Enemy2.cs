@@ -6,18 +6,19 @@ public class Enemy2 : MonoBehaviour
     private GameObject player;
     public float health;
     float defeat;
-    float damageBoost;
+    public float damageBoost;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if (Manager.instance.GetDamageBoost() == 0)
         {
-            damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
+            damageBoost = 1 + Manager.instance.GetTempDamageBoost();
+            Manager.instance.SetDamageBoost(1);
         }
         else
         {
-            damageBoost = 1 + Manager.instance.GetTempDamageBoost();
+            damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
         }
     }
 
