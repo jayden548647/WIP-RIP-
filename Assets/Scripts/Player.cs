@@ -29,9 +29,13 @@ public class Player : MonoBehaviour
     {
         gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
-        if(healthMultiplier == 0)
+        if(Manager.instance.GetHealthMultiplier() == 0)
         {
             healthMultiplier = 1;
+        }
+        if(Manager.instance.GetHealthMultiplier() != 0)
+        {
+            healthMultiplier = Manager.instance.GetHealthMultiplier();
         }
         if (Manager.instance.GetDefense() == 0)
         {

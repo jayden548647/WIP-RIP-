@@ -1872,10 +1872,15 @@ MonoBehaviour:
   dashSpeed: 15
   healthMultiplier: 0
   defense: 0
+  tempDefense: 0
   health: 0
   roomsCleared: 0
+  enemyDefeats: 0
   canDash: 1
   upgradeMenu: {fileID: 1908307981}
+  shopMenu: {fileID: 0}
+  healthBuy: {fileID: 0}
+  defenseBuy: {fileID: 0}
 --- !u!50 &959094770
 Rigidbody2D:
   serializedVersion: 5
@@ -3138,7 +3143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1908307982
 RectTransform:
   m_ObjectHideFlags: 0
