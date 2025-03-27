@@ -920,8 +920,8 @@ Camera:
   m_GameObject: {fileID: 143627529}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.33333334, g: 0.16078432, b: 0.19215687, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -985,9 +985,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317398350139425927, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6170428302870334673, guid: 7d5af4b9fce14cb448151cac41829452, type: 3}
+    - target: {fileID: 317398350139425927, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 317398350139425927, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 317398350139425927, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2877420892688071841, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
       propertyPath: m_Name
       value: Hexagon Flat Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415965175745854219, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415965175745854219, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8415965175745854219, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4462,7 +4486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f187da3b27ff04b98bc7de3a0c04d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1969190119874074417, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+  bullet: {fileID: 1020026887452847154, guid: f0cd0f4f076039b4c90d3a0954f4b1d9, type: 3}
   slash: {fileID: 7981340969337314198, guid: 454ae07311a08db4390b6d80f0f24a61, type: 3}
   bulletTransform: {fileID: 134248007}
   canFire: 1

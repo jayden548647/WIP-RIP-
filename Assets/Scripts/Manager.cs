@@ -12,6 +12,8 @@ public class Manager : MonoBehaviour
     public float tempBoostValue;
     public float bitsCount;
     public float healthBoost;
+    public float rangedValue;
+    public float skippedRooms;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -110,5 +112,22 @@ public class Manager : MonoBehaviour
     public float GetHealthMultiplier()
     {
         return healthBoost;
+    }
+
+    public void SetRangeUpgrade(float rangeUpgrade)
+    {
+        rangedValue = rangeUpgrade;
+    }
+    public float GetRangeUpgrade()
+    {
+        return rangedValue;
+    }
+    public void SetRoomSkip(float roomSkip)
+    {
+        skippedRooms = roomSkip;
+    }
+    public float GetRoomSkip()
+    {
+        return skippedRooms;
     }
 }

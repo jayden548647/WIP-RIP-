@@ -36,12 +36,18 @@ public class bulletScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Wall")
         {
-            Destroy(gameObject);
+            if (Manager.instance.GetRangeUpgrade() <= 2)
+            {
+                Destroy(gameObject);
+            }
 
         }
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "MovingEnemy" || collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            if (Manager.instance.GetRangeUpgrade() == 1)
+            {
+                Destroy(gameObject);
+            }
         }
 
         if (collision.gameObject.tag == "Cam")

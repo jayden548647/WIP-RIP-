@@ -184,13 +184,14 @@ public class Player : MonoBehaviour
             }
             else
             {
-                rng = Random.Range(5, 10);
+                rng = Random.Range(5, 11);
                 SceneManager.LoadScene(rng);
             }
         }
         if(collision.gameObject.tag == "Enter")
         {
             SceneManager.LoadScene(2);
+            Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
         }
         
     }

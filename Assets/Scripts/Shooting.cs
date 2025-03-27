@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
                     timer = 0;
                 }
             }
-            if (Input.GetMouseButton(0) && canFire)
+            if (Input.GetMouseButton(0) && canFire && Manager.instance.GetRangeUpgrade() != 0)
             {
                 canFire = false;
                 canSlash = false;
