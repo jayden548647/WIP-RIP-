@@ -47,10 +47,13 @@ public class Shooting : MonoBehaviour
                     timer = 0;
                 }
             }
-            if (Input.GetMouseButton(0) && canFire && Manager.instance.GetRangeUpgrade() != 0)
+            if (Input.GetMouseButtonDown(0) && canFire && Manager.instance.GetRangeUpgrade() != 0)
             {
-                canFire = false;
-                canSlash = false;
+                if (Manager.instance.GetRangeUpgrade() < 4)
+                {
+                    canFire = false;
+                    canSlash = false;
+                }
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             }
 

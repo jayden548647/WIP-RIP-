@@ -14,6 +14,13 @@ public class Manager : MonoBehaviour
     public float healthBoost;
     public float rangedValue;
     public float skippedRooms;
+    public float reviveCount;
+    public float enemyBoost;
+    public bool unlockRevives;
+    public bool unlockEnemy;
+    public bool unlockEndless;
+    public bool unlockBillian;
+    public bool inEndless;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -129,5 +136,62 @@ public class Manager : MonoBehaviour
     public float GetRoomSkip()
     {
         return skippedRooms;
+    }
+    public void SetRevives(float revives)
+    {
+        reviveCount = revives;
+    }
+    public float GetRevives()
+    {
+        return reviveCount;
+    }
+    public void SetEnemyMultipler(float enemyMultipler)
+    {
+        enemyBoost = enemyMultipler;
+    }
+    public float GetEnemyMultiplier()
+    {
+        return enemyBoost;
+    }
+
+    public void SetReviveUnlock(bool reviveUnlocked)
+    {
+        unlockRevives = reviveUnlocked;
+    }
+    public bool GetRevivesUnlock()
+    {
+        return unlockRevives;
+    }
+    public void SetEnemyUnlock(bool enemyUnlocked)
+    {
+        unlockEnemy = enemyUnlocked;
+    }
+    public bool GetEnemyUnlock()
+    {
+        return unlockEnemy;
+    }
+    public void SetEndlessUnlock(bool endlessUnlocked)
+    {
+        unlockEndless = endlessUnlocked;
+    }
+    public bool GetEndlessUnlock()
+    {
+        return unlockEndless;
+    }
+    public void SetUnlockBillian(bool billianUnlock)
+    {
+        unlockBillian = billianUnlock;
+    }
+    public bool GetUnlockBillian()
+    {
+        return unlockBillian;
+    }
+    public void SetEndlessActive(bool endless)
+    {
+        inEndless = endless;
+    }
+    public bool GetEndlessActive()
+    {
+        return inEndless;
     }
 }

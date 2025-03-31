@@ -50,7 +50,7 @@ public class bulletScript : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Cam")
+        if (collision.gameObject.tag == "Cam" || collision.gameObject.tag == "MeleeAttack")
         {
             rb.linearVelocity = -rb.linearVelocity;
         }

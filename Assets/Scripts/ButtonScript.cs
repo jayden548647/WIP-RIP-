@@ -7,8 +7,13 @@ public class ButtonScript : MonoBehaviour
 {
     bool endlessUnlocked;
     public TMP_Text endlessText;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+    }
     void Start()
     {
         

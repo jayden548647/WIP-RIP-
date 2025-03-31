@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "Cam")
+        if(collision.gameObject.tag == "Cam" || collision.gameObject.tag == "MeleeAttack")
         {
             rb.linearVelocity = -rb.linearVelocity;
         }

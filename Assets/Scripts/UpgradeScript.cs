@@ -9,22 +9,33 @@ public class UpgradeScript : MonoBehaviour
     public float attackPrice;
     public float rangePrice;
     public float skipPrice;
+    public float revivePrice;
+    public float enemyPrice;
     public float healthBought;
     public float defenseBought;
     public float attackBought;
     public float rangeBought;
     public float skipBought;
+    public float reviveBought;
+    public float enemyBought;
     public float healthPriceIncreaseScale;
     public float defensePriceIncreaseScale;
     public float attackPriceIncreaseScale;
     public float rangePriceIncreaseScale;
     public float skipPriceIncreaseScale;
+    public float revivePriceIncreaseScale;
+    public float enemyPriceIncreaseScale;
+    bool reviveUnlocked;
+    bool enemyUnlocked;
     string rangeUpgradeType;
     public TMP_Text healthCost;
     public TMP_Text attackCost;
     public TMP_Text rangeCost;
     public TMP_Text defenseCost;
     public TMP_Text skipCost;
+    public TMP_Text reviveCost;
+    public TMP_Text enemyCost;
+    public TMP_Text bitCount;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +46,34 @@ public class UpgradeScript : MonoBehaviour
         rangePriceIncreaseScale = 5;
         attackPriceIncreaseScale = 4;
         skipPriceIncreaseScale = 10;
+        revivePriceIncreaseScale = 25;
+        enemyPriceIncreaseScale = 2;
+        enemyUnlocked = Manager.instance.GetEnemyUnlock();
+        reviveUnlocked = Manager.instance.GetRevivesUnlock();
+        healthBought = Manager.instance.GetHealthMultiplier() - 1;
+        defenseBought = Manager.instance.GetDefense() - 1;
+        attackBought = Manager.instance.GetDamageBoost() - 1;
+        rangeBought = Manager.instance.GetRangeUpgrade();
+        skipBought = Manager.instance.GetRoomSkip();
+        reviveBought = Manager.instance.GetRevives();
+        enemyBought = Manager.instance.GetEnemyMultiplier() - 1;
+
+        if(healthBought < 0)
+        {
+            healthBought = 0;
+        }
+        if(defenseBought < 0)
+        {
+            defenseBought = 0;
+        }
+        if(attackBought < 0)
+        {
+            attackBought = 0;
+        }
+        if(enemyBought < 0)
+        {
+            enemyBought = 0;
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +93,10 @@ public class UpgradeScript : MonoBehaviour
         }
         if (rangeBought == 3)
         {
+            rangeUpgradeType = "Rapid Fire ";
+        }
+        if(rangeBought == 4)
+        {
             rangeUpgradeType = "No More ";
         }
         healthPrice = 40 * (healthPriceIncreaseScale * (healthBought + 1));
@@ -61,11 +104,14 @@ public class UpgradeScript : MonoBehaviour
         attackPrice = 100 * (attackPriceIncreaseScale * (attackBought + 1));
         rangePrice = 40 * (rangePriceIncreaseScale * (rangeBought + 1));
         skipPrice = 75 * (skipPriceIncreaseScale * (skipBought + 1));
+        revivePrice = 200 * (revivePriceIncreaseScale * (reviveBought + 1));
+        enemyPrice = 200 * enemyPriceIncreaseScale * (enemyBought + 1);
         healthCost.text = "Health UP " + healthPrice + " Bits";
         defenseCost.text = "Resist UP " + defensePrice + " Bits";
         attackCost.text = "Damage UP " + attackPrice + " Bits";
         rangeCost.text = rangeUpgradeType + rangePrice + " Bits";
         skipCost.text = "Late Start " + skipPrice + " Bits";
+        bitCount.text = "" + bits;
 
     }
 
@@ -84,7 +130,7 @@ public class UpgradeScript : MonoBehaviour
         if (Manager.instance.GetBits() >= 50 * (defensePriceIncreaseScale * (defenseBought + 1)) && defenseBought < 3)
         {
             bits -= 50 * (defensePriceIncreaseScale * (defenseBought + 1));
-            healthBought += 1;
+            defenseBought += 1;
             Manager.instance.SetDefense(defenseBought + 1);
             Manager.instance.SetBits(bits);
         }
@@ -94,14 +140,14 @@ public class UpgradeScript : MonoBehaviour
         if (Manager.instance.GetBits() >= 100 * (attackPriceIncreaseScale * (attackBought + 1)) && attackBought < 3)
         {
             bits -= 100 * (attackPriceIncreaseScale * (attackBought + 1));
-            healthBought += 1;
+            attackBought += 1;
             Manager.instance.SetDamageBoost(attackBought + 1);
             Manager.instance.SetBits(bits);
         }
     }
     public void RangeBuy()
     {
-        if (Manager.instance.GetBits() >= 40 * (rangePriceIncreaseScale * (rangeBought + 1)) && rangeBought < 3)
+        if (Manager.instance.GetBits() >= 40 * (rangePriceIncreaseScale * (rangeBought + 1)) && rangeBought < 4)
         {
             bits -= 40 * (rangePriceIncreaseScale * (rangeBought + 1));
             rangeBought += 1;
@@ -120,5 +166,24 @@ public class UpgradeScript : MonoBehaviour
             Manager.instance.SetBits(bits);
         }
     }
-
+    public void ReviveBuy()
+    {
+        if(Manager.instance.GetBits() >= 200 * (revivePriceIncreaseScale * (reviveBought + 1)) && reviveBought < 2 && reviveUnlocked)
+        {
+            bits -= 200 * (revivePriceIncreaseScale * (reviveBought + 1));
+            reviveBought += 1;
+            Manager.instance.SetRevives(reviveBought);
+            Manager.instance.SetBits(bits);
+        }
+    }
+    public void EnemyBuy()
+    {
+        if(Manager.instance.GetBits() >= 200 * (enemyPriceIncreaseScale * (enemyBought + 1)) && enemyBought < 2 && enemyUnlocked)
+        {
+            bits -= 200 * (enemyPriceIncreaseScale * (enemyBought + 1));
+            enemyBought += 1;
+            Manager.instance.SetEnemyMultipler(enemyBought + 1);
+            Manager.instance.SetBits(bits);
+        }
+    }
 }

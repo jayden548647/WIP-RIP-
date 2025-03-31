@@ -15,6 +15,7 @@ TagManager:
   - Enter
   - ShopOpen
   - UpgradeOpen
+  - HealthSet
   layers:
   - Default
   - TransparentFX

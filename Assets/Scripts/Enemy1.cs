@@ -7,6 +7,7 @@ public class Enemy1 : MonoBehaviour
     float defeat;
     public float damageBoost;
     float tempDamageBoost;
+    float defeatMultiplier;
     public TMP_Text damageBuy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,10 +17,19 @@ public class Enemy1 : MonoBehaviour
             damageBoost = 1 + Manager.instance.GetTempDamageBoost();
             Manager.instance.SetDamageBoost(1);
         }
-        else
+        if(Manager.instance.GetDamageBoost() > 0)
         {
             damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
             
+        }
+        if(Manager.instance.GetEnemyMultiplier() == 0)
+        {
+            defeatMultiplier = 1;
+            Manager.instance.SetEnemyMultipler(1);
+        }
+        if(Manager.instance.GetEnemyMultiplier() > 0)
+        {
+            defeatMultiplier = Manager.instance.GetEnemyMultiplier();
         }
     }
 
@@ -56,6 +66,7 @@ public class Enemy1 : MonoBehaviour
             damageBuy.text = "PURCHASED";
             Manager.instance.SetTempDamageBoost(tempDamageBoost);
             Manager.instance.SetEnemies(defeat);
+            Manager.instance.SetEnemyUnlock(true);
         }
     }
 }

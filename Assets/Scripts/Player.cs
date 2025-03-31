@@ -16,9 +16,11 @@ public class Player : MonoBehaviour
     public float health;
     public float roomsCleared;
     public float enemyDefeats;
+    public float revives;
     private int rng;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
+    private Vector3 startPos;
     public bool canDash;
     public GameObject upgradeMenu;
     public GameObject shopMenu;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     {
         gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
         if(Manager.instance.GetHealthMultiplier() == 0)
         {
             healthMultiplier = 1;
@@ -63,9 +66,20 @@ public class Player : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(health <= 0)
         {
-            SceneManager.LoadScene(4);
+            if (revives <= 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+            else
+            {
+                revives--;
+                Manager.instance.SetRevives(revives);
+                Revive();
+            }
         }
         enemyDefeats = Manager.instance.GetEnemies();
+        revives = Manager.instance.GetRevives();
+
     }
 
     private void FixedUpdate()
@@ -165,6 +179,11 @@ public class Player : MonoBehaviour
         {
             shopMenu.gameObject.SetActive(true);
         }
+        if(collision.gameObject.tag == "HealthSet")
+        {
+            health = 50 * healthMultiplier;
+            Manager.instance.SetHealth(health);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -192,6 +211,7 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(2);
             Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
+            health = 50 * healthMultiplier;
         }
         
     }
@@ -205,6 +225,7 @@ public class Player : MonoBehaviour
             healthBuy.text = "PURCHASED";
             Manager.instance.SetHealth(health);
             Manager.instance.SetEnemies(enemyDefeats);
+            Manager.instance.SetEnemyUnlock(true);
         }
     }
 
@@ -217,7 +238,13 @@ public class Player : MonoBehaviour
             defenseBuy.text = "PURCHASED";
             Manager.instance.SetTempDefense(tempDefense);
             Manager.instance.SetEnemies(enemyDefeats);
+            Manager.instance.SetEnemyUnlock(true);
         }
         
+    }
+    public void Revive()
+    {
+        health = 50 * healthMultiplier;
+        transform.position = startPos;
     }
 }

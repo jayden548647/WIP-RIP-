@@ -29,6 +29,7 @@ public class GameOver : MonoBehaviour
         Manager.instance.SetBits(totalBits);
         timer = 0;
         canLeave = false;
+        Manager.instance.SetReviveUnlock(true);
     }
 
     // Update is called once per frame
