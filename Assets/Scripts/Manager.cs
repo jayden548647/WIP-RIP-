@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
     public bool unlockEndless;
     public bool unlockBillian;
     public bool inEndless;
+    public bool unlockFix;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -193,5 +194,13 @@ public class Manager : MonoBehaviour
     public bool GetEndlessActive()
     {
         return inEndless;
+    }
+    public void SetUSkipUnlock(bool uskipUnlocked)
+    {
+        unlockFix = uskipUnlocked;
+    }
+    public bool GetUSkipUnlock()
+    {
+        return unlockFix;
     }
 }

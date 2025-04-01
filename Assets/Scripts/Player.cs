@@ -26,6 +26,12 @@ public class Player : MonoBehaviour
     public GameObject shopMenu;
     public TMP_Text healthBuy;
     public TMP_Text defenseBuy;
+    public DialogueTrigger cantAfford;
+    public DialogueTrigger dontNeed;
+    public bool spokenToCam;
+    public bool spokenToCam2;
+    public DialogueTrigger overHere;
+    public DialogueTrigger introduction;
     
     void Start()
     {
@@ -173,7 +179,15 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.tag == "UpgradeOpen")
         {
-            upgradeMenu.gameObject.SetActive(true);
+            if(spokenToCam2 == false)
+            {
+                introduction.TriggerDialogue();
+                spokenToCam2 = true;
+            }
+            if (spokenToCam2 == true)
+            {
+                upgradeMenu.gameObject.SetActive(true);
+            }
         }
         if (collision.gameObject.tag == "ShopOpen")
         {
@@ -183,6 +197,14 @@ public class Player : MonoBehaviour
         {
             health = 50 * healthMultiplier;
             Manager.instance.SetHealth(health);
+        }
+        if (collision.gameObject.tag == "Spawn")
+        {
+            if(spokenToCam == false)
+            {
+                overHere.TriggerDialogue();
+                spokenToCam = true;
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -218,7 +240,7 @@ public class Player : MonoBehaviour
     
     public void FullHeal()
     {
-        if (enemyDefeats >= 10)
+        if (enemyDefeats >= 10 && health < (50 * healthMultiplier))
         {
             enemyDefeats -= 10;
             health = 50 * healthMultiplier;
@@ -226,6 +248,14 @@ public class Player : MonoBehaviour
             Manager.instance.SetHealth(health);
             Manager.instance.SetEnemies(enemyDefeats);
             Manager.instance.SetEnemyUnlock(true);
+        }
+        if(enemyDefeats < 10 && health < (50 * healthMultiplier))
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(health >= (50 * healthMultiplier))
+        {
+            dontNeed.TriggerDialogue();
         }
     }
 
@@ -239,6 +269,10 @@ public class Player : MonoBehaviour
             Manager.instance.SetTempDefense(tempDefense);
             Manager.instance.SetEnemies(enemyDefeats);
             Manager.instance.SetEnemyUnlock(true);
+        }
+        if(enemyDefeats < 40)
+        {
+            cantAfford.TriggerDialogue();
         }
         
     }

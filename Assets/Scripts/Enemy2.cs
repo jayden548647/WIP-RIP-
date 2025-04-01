@@ -30,7 +30,8 @@ public class Enemy2 : MonoBehaviour
         
         if (health <= 0)
         {
-            Manager.instance.SetEnemies(defeat + 1);
+            defeat += 1 * (Manager.instance.GetEnemyMultiplier());
+            Manager.instance.SetEnemies(defeat);
             Destroy(gameObject);
         }
 

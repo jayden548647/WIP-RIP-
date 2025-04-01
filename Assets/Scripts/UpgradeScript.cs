@@ -11,6 +11,7 @@ public class UpgradeScript : MonoBehaviour
     public float skipPrice;
     public float revivePrice;
     public float enemyPrice;
+    public float fixPrice;
     public float healthBought;
     public float defenseBought;
     public float attackBought;
@@ -27,6 +28,7 @@ public class UpgradeScript : MonoBehaviour
     public float enemyPriceIncreaseScale;
     bool reviveUnlocked;
     bool enemyUnlocked;
+    bool fixUnlocked;
     string rangeUpgradeType;
     public TMP_Text healthCost;
     public TMP_Text attackCost;
@@ -36,6 +38,10 @@ public class UpgradeScript : MonoBehaviour
     public TMP_Text reviveCost;
     public TMP_Text enemyCost;
     public TMP_Text bitCount;
+    public DialogueTrigger cantAfford;
+    public DialogueTrigger notUnlocked;
+    public DialogueTrigger basicallyNo;
+    public DialogueTrigger maxed;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,6 +56,7 @@ public class UpgradeScript : MonoBehaviour
         enemyPriceIncreaseScale = 2;
         enemyUnlocked = Manager.instance.GetEnemyUnlock();
         reviveUnlocked = Manager.instance.GetRevivesUnlock();
+        fixUnlocked = Manager.instance.GetUSkipUnlock();
         healthBought = Manager.instance.GetHealthMultiplier() - 1;
         defenseBought = Manager.instance.GetDefense() - 1;
         attackBought = Manager.instance.GetDamageBoost() - 1;
@@ -89,11 +96,11 @@ public class UpgradeScript : MonoBehaviour
         }
         if(rangeBought == 2)
         {
-            rangeUpgradeType = "Ghost Stick ";
+            rangeUpgradeType = "No Clip Stick ";
         }
         if (rangeBought == 3)
         {
-            rangeUpgradeType = "Rapid Fire ";
+            rangeUpgradeType = "Duplication ";
         }
         if(rangeBought == 4)
         {
@@ -112,17 +119,30 @@ public class UpgradeScript : MonoBehaviour
         rangeCost.text = rangeUpgradeType + rangePrice + " Bits";
         skipCost.text = "Late Start " + skipPrice + " Bits";
         bitCount.text = "" + bits;
-
+        if(bits < 0)
+        {
+            bits = 0;
+            Manager.instance.SetBits(bits);
+        }
     }
 
     public void HealthBuy()
     {
-        if(Manager.instance.GetBits() >= 40 * (healthPriceIncreaseScale * (healthBought + 1)) && healthBought < 5)
+        if (Manager.instance.GetBits() >= 40 * (healthPriceIncreaseScale * (healthBought + 1)) && healthBought < 5)
         {
             bits -= 40 * (healthPriceIncreaseScale * (healthBought + 1));
             healthBought += 1;
             Manager.instance.SetHealthMultiplier(healthBought + 1);
             Manager.instance.SetBits(bits);
+        }
+
+        if (Manager.instance.GetBits() < 40 * (healthPriceIncreaseScale * (healthBought + 1)) && healthBought < 5)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(healthBought >= 5)
+        {
+            maxed.TriggerDialogue();
         }
     }
     public void DefenseBuy()
@@ -134,6 +154,14 @@ public class UpgradeScript : MonoBehaviour
             Manager.instance.SetDefense(defenseBought + 1);
             Manager.instance.SetBits(bits);
         }
+        if(Manager.instance.GetBits() < 50 *  (defensePriceIncreaseScale * (defenseBought + 1)) && defenseBought < 3)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(defenseBought >= 3)
+        {
+            maxed.TriggerDialogue();
+        }
     }
     public void AttackBuy()
     {
@@ -144,6 +172,14 @@ public class UpgradeScript : MonoBehaviour
             Manager.instance.SetDamageBoost(attackBought + 1);
             Manager.instance.SetBits(bits);
         }
+        if(Manager.instance.GetBits() < 100 * (attackPriceIncreaseScale * (attackBought + 1)) && attackBought < 3)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(attackBought >= 3)
+        {
+            maxed.TriggerDialogue();
+        }
     }
     public void RangeBuy()
     {
@@ -153,6 +189,14 @@ public class UpgradeScript : MonoBehaviour
             rangeBought += 1;
             Manager.instance.SetRangeUpgrade(rangeBought);
             Manager.instance.SetBits(bits);
+        }
+        if(Manager.instance.GetBits() < 40 * (rangePriceIncreaseScale * (rangeBought + 1)) && rangeBought < 4)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(rangeBought >= 4)
+        {
+            maxed.TriggerDialogue();
         }
     }
 
@@ -165,6 +209,14 @@ public class UpgradeScript : MonoBehaviour
             Manager.instance.SetRoomSkip(skipBought);
             Manager.instance.SetBits(bits);
         }
+        if(Manager.instance.GetBits() < 75 * (skipPriceIncreaseScale * (skipBought + 1)) && skipBought < 5)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(skipBought >= 5)
+        {
+            maxed.TriggerDialogue();
+        }
     }
     public void ReviveBuy()
     {
@@ -175,6 +227,22 @@ public class UpgradeScript : MonoBehaviour
             Manager.instance.SetRevives(reviveBought);
             Manager.instance.SetBits(bits);
         }
+        if (Manager.instance.GetBits() < 200 * (revivePriceIncreaseScale * (reviveBought + 1)) && reviveBought < 2 && reviveUnlocked)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(Manager.instance.GetBits() >= 200 * (revivePriceIncreaseScale * (reviveBought + 1)) && !reviveUnlocked)
+        {
+            notUnlocked.TriggerDialogue();
+        }
+        if(Manager.instance.GetBits() < 200 * (revivePriceIncreaseScale * (reviveBought + 1)) && !reviveUnlocked)
+        {
+            basicallyNo.TriggerDialogue();
+        }
+        if(reviveBought >= 2)
+        {
+            maxed.TriggerDialogue();
+        }
     }
     public void EnemyBuy()
     {
@@ -184,6 +252,41 @@ public class UpgradeScript : MonoBehaviour
             enemyBought += 1;
             Manager.instance.SetEnemyMultipler(enemyBought + 1);
             Manager.instance.SetBits(bits);
+        }
+        if(Manager.instance.GetBits() < 200 * (enemyPriceIncreaseScale * (enemyBought + 1)) && enemyBought < 2 && enemyUnlocked)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(Manager.instance.GetBits() >= 200 * (enemyPriceIncreaseScale * (enemyBought + 1)) && !enemyUnlocked)
+        {
+            notUnlocked.TriggerDialogue();
+        }
+        if(Manager.instance.GetBits() < 200 * (enemyPriceIncreaseScale *  (enemyBought + 1)) && !enemyUnlocked)
+        {
+            basicallyNo.TriggerDialogue();
+        }
+        if(enemyBought >= 2)
+        {
+            maxed.TriggerDialogue();
+        }
+    }
+    public void FixBuy()
+    {
+        if(Manager.instance.GetBits() >= 1000000 && fixUnlocked)
+        {
+            Debug.Log("To da boss");
+        }
+        if(Manager.instance.GetBits() < 1000000 && fixUnlocked)
+        {
+            cantAfford.TriggerDialogue();
+        }
+        if(!fixUnlocked && Manager.instance.GetBits() >= 1000000)
+        {
+            notUnlocked.TriggerDialogue();
+        }
+        if(Manager.instance.GetBits() < 1000000 && !fixUnlocked)
+        {
+            basicallyNo.TriggerDialogue();
         }
     }
 }
