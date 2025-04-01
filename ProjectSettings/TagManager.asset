@@ -16,6 +16,7 @@ TagManager:
   - ShopOpen
   - UpgradeOpen
   - HealthSet
+  - Spawn
   layers:
   - Default
   - TransparentFX

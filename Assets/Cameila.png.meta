@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cameila_0: 6170428302870334673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

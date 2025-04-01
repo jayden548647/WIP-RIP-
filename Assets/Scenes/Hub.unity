@@ -4198,7 +4198,7 @@ GameObject:
   - component: {fileID: 740606588}
   m_Layer: 0
   m_Name: Circle (1)
-  m_TagString: Untagged
+  m_TagString: Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4331,6 +4331,7 @@ GameObject:
   - component: {fileID: 809917116}
   - component: {fileID: 809917118}
   - component: {fileID: 809917119}
+  - component: {fileID: 809917120}
   m_Layer: 0
   m_Name: Square
   m_TagString: Wall
@@ -4476,6 +4477,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &809917120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809917115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698d2e4b7417514ba5cae11eb340d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Cameila
+    sentences:
+    - Hey! Come over here!
 --- !u!1 &934294009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,8 +4998,8 @@ MonoBehaviour:
   dontNeed: {fileID: 0}
   spokenToCam: 0
   spokenToCam2: 0
-  overHere: {fileID: 0}
-  introduction: {fileID: 0}
+  overHere: {fileID: 809917120}
+  introduction: {fileID: 997387484}
 --- !u!50 &959094770
 Rigidbody2D:
   serializedVersion: 5
@@ -5526,9 +5543,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2877420892688071841, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 997387485}
-    - targetCorrespondingSourceObject: {fileID: 2877420892688071841, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 997387484}
   m_SourcePrefab: {fileID: 100100000, guid: 418fe9bff8bf0914bae4c92284b1740c, type: 3}
 --- !u!1 &997387483 stripped
@@ -5577,23 +5591,41 @@ MonoBehaviour:
     - Anyway, I can't interact too directly with the game or it might cause problems.
     - So I help in another way.
     - If you give me bits that you've earned I can give you some upgrades that can
-      help you get to the end
---- !u!114 &997387485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997387483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7698d2e4b7417514ba5cae11eb340d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Cameila
-    sentences:
-    - Hey! Come over here!
+      help you get to the end.
+    - Because at the end is a bossfight and after that is an entire unused ending
+      sequence that we can take so many bits from!
+    - Enough to fix the game.
+    - Anyway, me helping you.
+    - You may or may not have noticed yet but I found code for a dash and enabled
+      it for you
+    - you can use it by pressing down the scroll wheel on your mouse.
+    - If you're on a laptop, too bad, there's no alternative.
+    - It's important to note, you shouldn't rely on this dash
+    - The code I found is very flawed and I don't have the bits to fix it yet so
+      it's very unreliable.
+    - Like, it's there but nine times out of ten nothing will happen.
+    - Lastly, I give you this stick
+    - ...
+    - ...
+    - No. Of course I wouldn't just give you a regular stick.
+    - This is a debug stick, it's a reference.
+    - Anyway this is the weapon you'll be using to defeat the enemies you'll meet.
+    - You can't do much with it right now, just swing it around with a right click.
+    - Though I will ask that you don't go swinging it around out here. It's meant
+      for the enemies in there, not me.
+    - But with bits you can upgrade it to let you throw it using a left click.
+    - Anyway I'm getting tired of moving code to make these dialogue boxes so...
+    - I'll just let you know that i'll be seeing you about half way through you're
+      journey.
+    - Make sure to defeat enemies on your way there because I'll sell you some upgrades
+      there.
+    - However, those upgrades are only temporary and will go away if PC dies.
+    - And don't worry if that happens, I expect them to be dying a lot, you're going
+      to need my upgrades.
+    - Okay 46 text boxes, long dialogue. I'm probably boring you if you've actually
+      been reading this.
+    - So, onward you go. And I'll warn you, if you see me in there don't throw the
+      stick at me. It won't go well.
 --- !u!1 &1103478774
 GameObject:
   m_ObjectHideFlags: 0
