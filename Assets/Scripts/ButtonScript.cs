@@ -27,6 +27,7 @@ public class ButtonScript : MonoBehaviour
 
     public void StartClick()
     {
+        Manager.instance.LoadGame();
         SceneManager.LoadScene(1);
         Manager.instance.SetRoom(0);
         Manager.instance.SetEnemies(0);
@@ -66,5 +67,9 @@ public class ButtonScript : MonoBehaviour
         Manager.instance.SetEnemies(0);
         Manager.instance.SetTempDefense(0);
         Manager.instance.SetTempDamageBoost(0);
+    }
+    public void DeleteClick()
+    {
+        SaveSystem.ClearSave();
     }
 }

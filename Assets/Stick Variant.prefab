@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.41
       objectReference: {fileID: 0}
+    - target: {fileID: -1592768908412297038, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 1065296134953928861}
     - target: {fileID: 1969190119874074417, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
       propertyPath: m_Name
       value: Stick Variant
@@ -89,3 +93,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+--- !u!212 &1065296134953928861 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1998643615277151134, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+  m_PrefabInstance: {fileID: 1545907815287421699}
+  m_PrefabAsset: {fileID: 0}

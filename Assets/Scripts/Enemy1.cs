@@ -21,7 +21,7 @@ public class Enemy1 : MonoBehaviour
         if(Manager.instance.GetDamageBoost() > 0)
         {
             damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
-            
+            Manager.instance.SetDamageBoost(damageBoost - Manager.instance.GetTempDamageBoost());
         }
         if(Manager.instance.GetEnemyMultiplier() == 0)
         {

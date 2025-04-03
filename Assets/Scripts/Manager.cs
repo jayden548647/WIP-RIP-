@@ -16,12 +16,15 @@ public class Manager : MonoBehaviour
     public float skippedRooms;
     public float reviveCount;
     public float enemyBoost;
+    public float saveTimer;
     public bool unlockRevives;
     public bool unlockEnemy;
     public bool unlockEndless;
     public bool unlockBillian;
     public bool inEndless;
     public bool unlockFix;
+    public bool spoken1;
+    public bool spoken2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -45,7 +48,12 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        saveTimer -= Time.deltaTime;
+        if(saveTimer <= 0)
+        {
+            SaveGame();
+            saveTimer = 10;
+        }
     }
 
     public void SetHealth(float health)
@@ -99,7 +107,7 @@ public class Manager : MonoBehaviour
     }
     public void SetTempDamageBoost(float tempBoost)
     {
-        boostValue = tempBoost;
+        tempBoostValue = tempBoost;
     }
     public float GetTempDamageBoost()
     {
@@ -202,5 +210,45 @@ public class Manager : MonoBehaviour
     public bool GetUSkipUnlock()
     {
         return unlockFix;
+    }
+    public void SetSpeak1(bool speak1)
+    {
+        spoken1 = speak1;
+    }
+    public bool GetSpeak1()
+    {
+        return spoken1; ;
+    }
+    public void SetSpeak2(bool speak2)
+    {
+        spoken2 = speak2;
+    }
+    public bool GetSpeak2()
+    {
+        return spoken2; ;
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame(this);
+    }
+    public void LoadGame()
+    {
+        PlayerData data = SaveSystem.LoadGame();
+        healthBoost = data.healthMultiplier;
+        defenseValue = data.defense;
+        boostValue = data.damageBoost;
+        rangedValue = data.rangeUpgrade;
+        skippedRooms = data.roomSkip;
+        reviveCount = data.revives;
+        enemyBoost = data.enemyMultiplier;
+        bitsCount = data.bits;
+        unlockRevives = data.reviveUnlocked;
+        unlockEnemy = data.enemyUnlocked;
+        unlockEndless = data.endlessUnlocked;
+        unlockBillian = data.billianUnlocked;
+        unlockFix = data.fixUnlocked;
+        spoken1 = data.spoken1;
+        spoken2 = data.spoken2;
     }
 }

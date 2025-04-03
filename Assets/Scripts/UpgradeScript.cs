@@ -118,6 +118,8 @@ public class UpgradeScript : MonoBehaviour
         attackCost.text = "Damage UP " + attackPrice + " Bits";
         rangeCost.text = rangeUpgradeType + rangePrice + " Bits";
         skipCost.text = "Late Start " + skipPrice + " Bits";
+        reviveCost.text = "REVIVE " + revivePrice + " Bits";
+        enemyCost.text = "Enemy Multiplier " + enemyPrice + " Bits";
         bitCount.text = "" + bits;
         if(bits < 0)
         {

@@ -5622,7 +5622,10 @@ MonoBehaviour:
     - However, those upgrades are only temporary and will go away if PC dies.
     - And don't worry if that happens, I expect them to be dying a lot, you're going
       to need my upgrades.
-    - Okay 46 text boxes, long dialogue. I'm probably boring you if you've actually
+    - Also know that upgrades from here are permanent.
+    - Except revives, those are single use. If you die you need to rebuy the revive
+      you just used; the code to keep track of revives is more flawed than the dash.
+    - Okay 48 text boxes, long dialogue. I'm probably boring you if you've actually
       been reading this.
     - So, onward you go. And I'll warn you, if you see me in there don't throw the
       stick at me. It won't go well.
@@ -7504,6 +7507,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400673208}
   m_CullTransparentMesh: 1
+--- !u!1001 &1411886310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 140264603485515738, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_Name
+      value: EnemyA Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.412994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.077545166
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394610002656950184, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349906607905794729, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d9831b7bd50fec542ac8fddbf2349b5c, type: 3}
 --- !u!1 &1437595348
 GameObject:
   m_ObjectHideFlags: 0
@@ -9096,8 +9160,8 @@ MonoBehaviour:
   rangeCost: {fileID: 70759384}
   defenseCost: {fileID: 245403100}
   skipCost: {fileID: 470330503}
-  reviveCost: {fileID: 0}
-  enemyCost: {fileID: 0}
+  reviveCost: {fileID: 307883396}
+  enemyCost: {fileID: 242569914}
   bitCount: {fileID: 1116003248}
   cantAfford: {fileID: 1908307988}
   notUnlocked: {fileID: 1908307987}
@@ -10168,3 +10232,4 @@ SceneRoots:
   - {fileID: 2049999236}
   - {fileID: 467955378}
   - {fileID: 740606590}
+  - {fileID: 1411886310}

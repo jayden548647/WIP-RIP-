@@ -1026,11 +1026,18 @@ MonoBehaviour:
   health: 0
   roomsCleared: 0
   enemyDefeats: 0
+  revives: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
   shopMenu: {fileID: 0}
   healthBuy: {fileID: 0}
   defenseBuy: {fileID: 0}
+  cantAfford: {fileID: 0}
+  dontNeed: {fileID: 0}
+  spokenToCam: 0
+  spokenToCam2: 0
+  overHere: {fileID: 0}
+  introduction: {fileID: 0}
 --- !u!50 &390089534
 Rigidbody2D:
   serializedVersion: 5
@@ -3371,6 +3378,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -1592768908412297038, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 1501608381759365273}
+    - target: {fileID: -1592768908412297038, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
       propertyPath: force
       value: 200
       objectReference: {fileID: 0}
@@ -3439,6 +3450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+--- !u!212 &1501608381759365273 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1998643615277151134, guid: 28e1a65141c3e7e4eac7e45acf267e41, type: 3}
+  m_PrefabInstance: {fileID: 1501608381759365272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1507881418996355256
 PrefabInstance:
   m_ObjectHideFlags: 0

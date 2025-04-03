@@ -19,6 +19,7 @@ public class Enemy2 : MonoBehaviour
         else
         {
             damageBoost = Manager.instance.GetDamageBoost() + Manager.instance.GetTempDamageBoost();
+            Manager.instance.SetDamageBoost(damageBoost - Manager.instance.GetTempDamageBoost());
         }
     }
 

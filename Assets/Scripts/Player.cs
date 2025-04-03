@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
         gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+        spokenToCam = Manager.instance.GetSpeak1();
+        spokenToCam2 = Manager.instance.GetSpeak2();
         if(Manager.instance.GetHealthMultiplier() == 0)
         {
             healthMultiplier = 1;
@@ -183,6 +185,7 @@ public class Player : MonoBehaviour
             {
                 introduction.TriggerDialogue();
                 spokenToCam2 = true;
+                Manager.instance.SetSpeak2(true);
             }
             if (spokenToCam2 == true)
             {
@@ -197,6 +200,11 @@ public class Player : MonoBehaviour
         {
             health = 50 * healthMultiplier;
             Manager.instance.SetHealth(health);
+            if(spokenToCam2 == false)
+            {
+                introduction.TriggerDialogue();
+                Manager.instance.SetSpeak2(true);
+            }
         }
         if (collision.gameObject.tag == "Spawn")
         {
@@ -204,6 +212,7 @@ public class Player : MonoBehaviour
             {
                 overHere.TriggerDialogue();
                 spokenToCam = true;
+                Manager.instance.SetSpeak1(true);
             }
         }
     }
