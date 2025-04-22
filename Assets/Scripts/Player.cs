@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     public bool spokenToCam2;
     public DialogueTrigger overHere;
     public DialogueTrigger introduction;
+    public Animator animator;
+    public SpriteRenderer sr;
     
     void Start()
     {
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
         }
         enemyDefeats = Manager.instance.GetEnemies();
         revives = Manager.instance.GetRevives();
-
+        DoAnimation();
     }
 
     private void FixedUpdate()
@@ -234,7 +236,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                rng = Random.Range(5, 11);
+                rng = Random.Range(6, 12);
                 SceneManager.LoadScene(rng);
             }
         }
@@ -244,7 +246,14 @@ public class Player : MonoBehaviour
             Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
             health = 50 * healthMultiplier;
         }
-        
+        if(collision.gameObject.tag == "secret")
+        {
+            SceneManager.LoadScene(5);
+        }
+        if (collision.gameObject.tag == "ShopReturn")
+        {
+            SceneManager.LoadScene(3);
+        }
     }
     
     public void FullHeal()
@@ -289,5 +298,38 @@ public class Player : MonoBehaviour
     {
         health = 50 * healthMultiplier;
         transform.position = startPos;
+    }
+    public void DoAnimation()
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("moving", true);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("facingsideways", true);
+            sr.flipX = true;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("facingsideways", true);
+            sr.flipX = false;
+        }
+        if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("facingsideways", false);
+            sr.flipX = false;
+            animator.SetBool("facingaway", true);
+        }
+        if(Input.GetKey(KeyCode.S) &&  !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("facingsideways", false);
+            sr.flipX = false;
+            animator.SetBool("facingaway", false);
+        }
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("moving", false);
+        }
     }
 }

@@ -9,17 +9,26 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
+    public GameObject dialoguePortrait;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         sentences = new Queue<string>();
+        dialoguePortrait = GameObject.FindGameObjectWithTag("DialoguePortrait");
     }
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("dialogue", true);
         Debug.Log("Starting Dialogue");
         nameText.text = dialogue.name;
-
+        if (dialogue.name == "PC")
+        {
+            dialoguePortrait.SetActive(false);
+        }
+        if (dialogue.name == "Cameila")
+        {
+            dialoguePortrait.SetActive(true);
+        }
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
