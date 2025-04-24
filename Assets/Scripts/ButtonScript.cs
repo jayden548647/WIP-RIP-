@@ -70,6 +70,6 @@ public class ButtonScript : MonoBehaviour
     }
     public void DeleteClick()
     {
-        SaveSystem.ClearSave();
+        Manager.instance.ClearSave();
     }
 }

@@ -1265,6 +1265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 949564863}
   - component: {fileID: 949564864}
+  - component: {fileID: 949564865}
   m_Layer: 0
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -1343,6 +1344,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &949564865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949564862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f187da3b27ff04b98bc7de3a0c04d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1020026887452847154, guid: f0cd0f4f076039b4c90d3a0954f4b1d9, type: 3}
+  slash: {fileID: 7981340969337314198, guid: 454ae07311a08db4390b6d80f0f24a61, type: 3}
+  bulletTransform: {fileID: 2076029412}
+  canFire: 0
+  canSlash: 0
+  timeBetweenFiring: 0
+  timeBetweenSlashing: 0
+  paused: 0
 --- !u!1 &1285035683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,7 +2966,7 @@ MonoBehaviour:
   animator: {fileID: 495036084}
   nameText: {fileID: 594286240}
   dialogueText: {fileID: 1814716200}
-  dialoguePortrait: {fileID: 0}
+  dialoguePortrait: {fileID: 2081527386}
 --- !u!4 &1780471115
 Transform:
   m_ObjectHideFlags: 0
@@ -3789,7 +3810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7742b34e6d80d846b16c97fa7885dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 586065867}
 --- !u!114 &1997267607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,7 +3843,8 @@ MonoBehaviour:
   spokenToCam: 0
   spokenToCam2: 0
   overHere: {fileID: 0}
-  introduction: {fileID: 0}
+  introduction: {fileID: 1383117677}
+  truth: {fileID: 0}
   animator: {fileID: 1997267605}
   sr: {fileID: 1997267610}
 --- !u!50 &1997267608
@@ -3995,7 +4017,7 @@ Transform:
   m_GameObject: {fileID: 2076029411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 1}
+  m_LocalPosition: {x: 4.5, y: 0, z: 1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4069,7 +4091,7 @@ GameObject:
   - component: {fileID: 2081527388}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: DialoguePortrait
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

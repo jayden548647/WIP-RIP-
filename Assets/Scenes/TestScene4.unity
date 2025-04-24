@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 284154943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 1}
+  m_LocalPosition: {x: 4.5, y: 0, z: 1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2664,7 +2664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7742b34e6d80d846b16c97fa7885dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1894126800}
 --- !u!114 &1717937616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,6 +2698,7 @@ MonoBehaviour:
   spokenToCam2: 0
   overHere: {fileID: 0}
   introduction: {fileID: 0}
+  truth: {fileID: 0}
   animator: {fileID: 1717937614}
   sr: {fileID: 1717937619}
 --- !u!50 &1717937617
@@ -3365,6 +3366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1921432688}
   - component: {fileID: 1921432689}
+  - component: {fileID: 1921432690}
   m_Layer: 0
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -3443,6 +3445,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1921432690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921432687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f187da3b27ff04b98bc7de3a0c04d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1020026887452847154, guid: f0cd0f4f076039b4c90d3a0954f4b1d9, type: 3}
+  slash: {fileID: 7981340969337314198, guid: 454ae07311a08db4390b6d80f0f24a61, type: 3}
+  bulletTransform: {fileID: 284154944}
+  canFire: 0
+  canSlash: 0
+  timeBetweenFiring: 0
+  timeBetweenSlashing: 0
+  paused: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

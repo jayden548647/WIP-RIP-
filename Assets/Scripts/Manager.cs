@@ -39,6 +39,7 @@ public class Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       LoadGame();
     }
     void Start()
     {
@@ -250,5 +251,26 @@ public class Manager : MonoBehaviour
         unlockFix = data.fixUnlocked;
         spoken1 = data.spoken1;
         spoken2 = data.spoken2;
+    }
+
+    public void ClearSave()
+    {
+        healthBoost = 0;
+        defenseValue = 0;
+        boostValue = 0;
+        rangedValue = 0;
+        skippedRooms = 0;
+        reviveCount = 0;
+        enemyBoost = 0;
+        bitsCount = 0;
+        unlockRevives = false;
+        unlockEnemy = false;
+        unlockEndless = false;
+        unlockBillian = false;
+        unlockFix = false;
+        spoken1 = false;
+        spoken2 = false;
+        
+        SaveSystem.SaveGame(this);
     }
 }

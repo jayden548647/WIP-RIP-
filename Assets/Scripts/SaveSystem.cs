@@ -34,9 +34,5 @@ public static class SaveSystem
             return null;
         }
     }
-    public static void ClearSave()
-    {
-        string path = Application.persistentDataPath + "/gameSave.cam";
-        File.Delete(path);
-    }
+    
 }

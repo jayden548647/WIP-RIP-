@@ -1485,11 +1485,20 @@ MonoBehaviour:
   health: 0
   roomsCleared: 0
   enemyDefeats: 0
+  revives: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
   shopMenu: {fileID: 0}
   healthBuy: {fileID: 0}
   defenseBuy: {fileID: 0}
+  cantAfford: {fileID: 0}
+  dontNeed: {fileID: 0}
+  spokenToCam: 0
+  spokenToCam2: 0
+  overHere: {fileID: 0}
+  introduction: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!50 &1336770116
 Rigidbody2D:
   serializedVersion: 5

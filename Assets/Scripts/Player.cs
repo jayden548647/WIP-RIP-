@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public bool spokenToCam2;
     public DialogueTrigger overHere;
     public DialogueTrigger introduction;
+    public DialogueTrigger truth;
     public Animator animator;
     public SpriteRenderer sr;
     
@@ -216,6 +217,10 @@ public class Player : MonoBehaviour
                 spokenToCam = true;
                 Manager.instance.SetSpeak1(true);
             }
+        }
+        if(collision.gameObject.tag == "Story")
+        {
+            truth.TriggerDialogue();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

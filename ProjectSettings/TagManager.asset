@@ -19,6 +19,8 @@ TagManager:
   - Spawn
   - secret
   - DialoguePortrait
+  - ShopReturn
+  - Story
   layers:
   - Default
   - TransparentFX
