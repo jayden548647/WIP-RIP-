@@ -24,6 +24,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Secret.unity
     guid: 91f8e6a4a6df50f4d9c42822d519d407
   - enabled: 1
+    path: Assets/Scenes/empty1.unity
+    guid: b6759674576befa43bfacddde937e8c5
+  - enabled: 1
+    path: Assets/Scenes/empty2.unity
+    guid: bc5e54156df939d47b68469ab05a63ac
+  - enabled: 1
+    path: Assets/Scenes/happiestDay.unity
+    guid: cadc1f6f2fa445145bc07a7307801bfc
+  - enabled: 1
+    path: Assets/Scenes/leasthappyday.unity
+    guid: 5fe15c9d0422ebf4eaa4ad8d7391cecc
+  - enabled: 1
+    path: Assets/Scenes/GraveRow.unity
+    guid: 519805c75b72f8f4aa2a3ead23fc48d7
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 8f0ee8f157294df4294f55032298d2e9
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -41,6 +59,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene4.unity
     guid: 3b0eeb2175e0fba4c8abe910fe3c4dea
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: bdf419bb7cf108a4f947f9607b9e0e0e
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 14ce249c32db7d54da35c5f9129018b6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

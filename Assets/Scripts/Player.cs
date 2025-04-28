@@ -34,7 +34,9 @@ public class Player : MonoBehaviour
     public DialogueTrigger introduction;
     public DialogueTrigger truth;
     public Animator animator;
+    
     public SpriteRenderer sr;
+    
     
     void Start()
     {
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
         {
             defense = Manager.instance.GetDefense() + Manager.instance.GetTempDefense();
         }
-        if (Manager.instance.playerHealth == 0)
+        if (Manager.instance.playerHealth <= 0)
         {
             health = 50 * healthMultiplier;
             Manager.instance.SetHealth(health);
@@ -80,6 +82,8 @@ public class Player : MonoBehaviour
             if (revives <= 0)
             {
                 SceneManager.LoadScene(4);
+                MusicManager.instance.PlayMusic("GameOverMusic");
+                
             }
             else
             {
@@ -91,6 +95,7 @@ public class Player : MonoBehaviour
         enemyDefeats = Manager.instance.GetEnemies();
         revives = Manager.instance.GetRevives();
         DoAnimation();
+        
     }
 
     private void FixedUpdate()
@@ -235,29 +240,43 @@ public class Player : MonoBehaviour
         {
             roomsCleared++;
             Manager.instance.SetRoom(roomsCleared);
+            
             if (roomsCleared == 50)
             {
+                MusicManager.instance.PlayMusic("ShopMusic");
                 SceneManager.LoadScene(3);
             }
+            
             else
             {
-                rng = Random.Range(6, 12);
+                rng = Random.Range(6, 19);
                 SceneManager.LoadScene(rng);
             }
+        }
+        if(collision.gameObject.tag == "ShopExit")
+        {
+            rng = Random.Range(6, 19);
+            SceneManager.LoadScene(rng);
+            MusicManager.instance.PlayMusic("RunMusic");
+            
         }
         if(collision.gameObject.tag == "Enter")
         {
             SceneManager.LoadScene(2);
+            MusicManager.instance.PlayMusic("RunMusic");
             Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
             health = 50 * healthMultiplier;
+            
         }
         if(collision.gameObject.tag == "secret")
         {
+            MusicManager.instance.PlayMusic("SecretMusic");
             SceneManager.LoadScene(5);
         }
         if (collision.gameObject.tag == "ShopReturn")
         {
             SceneManager.LoadScene(3);
+            MusicManager.instance.PlayMusic("ShopMusic");
         }
     }
     
@@ -306,33 +325,33 @@ public class Player : MonoBehaviour
     }
     public void DoAnimation()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("moving", true);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             animator.SetBool("facingsideways", true);
             sr.flipX = true;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("facingsideways", true);
             sr.flipX = false;
         }
-        if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("facingsideways", false);
             sr.flipX = false;
             animator.SetBool("facingaway", true);
         }
-        if(Input.GetKey(KeyCode.S) &&  !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) &&  !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("facingsideways", false);
             sr.flipX = false;
             animator.SetBool("facingaway", false);
         }
-        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             animator.SetBool("moving", false);
         }

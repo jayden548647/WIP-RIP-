@@ -38,6 +38,7 @@ public class GameOver : MonoBehaviour
         if(Input.anyKeyDown && canLeave)
         {
             SceneManager.LoadScene(1);
+            MusicManager.instance.PlayMusic("LobbyMusic");
             Manager.instance.SetRoom(0);
             Manager.instance.SetEnemies(0);
             Manager.instance.SetTempDamageBoost(0);

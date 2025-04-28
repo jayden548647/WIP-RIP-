@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour
 {
     bool endlessUnlocked;
     public TMP_Text endlessText;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -28,6 +29,8 @@ public class ButtonScript : MonoBehaviour
     public void StartClick()
     {
         Manager.instance.LoadGame();
+        MusicManager.instance.PlayMusic("LobbyMusic");
+        
         SceneManager.LoadScene(1);
         Manager.instance.SetRoom(0);
         Manager.instance.SetEnemies(0);

@@ -21,6 +21,7 @@ TagManager:
   - DialoguePortrait
   - ShopReturn
   - Story
+  - ShopExit
   layers:
   - Default
   - TransparentFX

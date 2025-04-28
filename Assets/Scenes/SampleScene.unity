@@ -1038,6 +1038,9 @@ MonoBehaviour:
   spokenToCam2: 0
   overHere: {fileID: 0}
   introduction: {fileID: 0}
+  truth: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!50 &390089534
 Rigidbody2D:
   serializedVersion: 5
