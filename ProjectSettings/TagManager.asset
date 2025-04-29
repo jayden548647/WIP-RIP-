@@ -22,6 +22,7 @@ TagManager:
   - ShopReturn
   - Story
   - ShopExit
+  - egg
   layers:
   - Default
   - TransparentFX

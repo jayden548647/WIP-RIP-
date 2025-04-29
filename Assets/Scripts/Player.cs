@@ -249,13 +249,13 @@ public class Player : MonoBehaviour
             
             else
             {
-                rng = Random.Range(6, 19);
+                rng = Random.Range(6, 24);
                 SceneManager.LoadScene(rng);
             }
         }
         if(collision.gameObject.tag == "ShopExit")
         {
-            rng = Random.Range(6, 19);
+            rng = Random.Range(6, 24);
             SceneManager.LoadScene(rng);
             MusicManager.instance.PlayMusic("RunMusic");
             
@@ -277,6 +277,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(3);
             MusicManager.instance.PlayMusic("ShopMusic");
+        }
+        if(collision.gameObject.tag == "Egg")
+        {
+            truth.TriggerDialogue();
         }
     }
     

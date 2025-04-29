@@ -6238,10 +6238,12 @@ MonoBehaviour:
     - Also know that upgrades from here are permanent.
     - Except revives, those are single use. If you die you need to rebuy the revive
       you just used; the code to keep track of revives is more flawed than the dash.
-    - Okay 48 text boxes, long dialogue. I'm probably boring you if you've actually
+    - Okay 49 text boxes, long dialogue. I'm probably boring you if you've actually
       been reading this.
     - So, onward you go. And I'll warn you, if you see me in there don't throw the
       stick at me. It won't go well.
+    - Oh, also! If you're ever in a room and feel upside-down; try going the other
+      way.
 --- !u!1 &1103478774
 GameObject:
   m_ObjectHideFlags: 0

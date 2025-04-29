@@ -24,8 +24,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Secret.unity
     guid: 91f8e6a4a6df50f4d9c42822d519d407
   - enabled: 1
+    path: Assets/Scenes/Empty3.unity
+    guid: 01af8719d2dca28498b1d56bbe1b535b
+  - enabled: 1
+    path: Assets/Scenes/empty4.unity
+    guid: 5101c2787764e0b44977dc2104a42027
+  - enabled: 1
+    path: Assets/Scenes/frownupsidedown.unity
+    guid: 3ec3fb054faa34c42abef5372e86af6f
+  - enabled: 1
+    path: Assets/Scenes/j3v3j.unity
+    guid: e36f996af24cac24bb54bf1f7a6870d9
+  - enabled: 1
     path: Assets/Scenes/empty1.unity
     guid: b6759674576befa43bfacddde937e8c5
+  - enabled: 1
+    path: Assets/Scenes/man.unity
+    guid: 2220308d91a3e2447a1cc7686ed50391
   - enabled: 1
     path: Assets/Scenes/empty2.unity
     guid: bc5e54156df939d47b68469ab05a63ac

@@ -1870,7 +1870,7 @@ MonoBehaviour:
   - name: LobbyMusic
     clip: {fileID: 8300000, guid: 9fe59c5402a4cde43a7d91a906b01584, type: 3}
   - name: RunMusic
-    clip: {fileID: 8300000, guid: bda7224689288284ca8ddd20707b755d, type: 3}
+    clip: {fileID: 8300000, guid: b94b362cee55bcc43bd99152c05e1618, type: 3}
   - name: ShopMusic
     clip: {fileID: 8300000, guid: 0509cf9cbfb53c240a06cbe739ccd622, type: 3}
   - name: SecretMusic
