@@ -42,8 +42,14 @@ EditorBuildSettings:
     path: Assets/Scenes/man.unity
     guid: 2220308d91a3e2447a1cc7686ed50391
   - enabled: 1
+    path: Assets/Scenes/hugeroom.unity
+    guid: 4bd445d0f0693ee489a60e646f0dd407
+  - enabled: 1
     path: Assets/Scenes/empty2.unity
     guid: bc5e54156df939d47b68469ab05a63ac
+  - enabled: 1
+    path: Assets/Scenes/empty5.unity
+    guid: 19da4bd3d5f7a474eb2df7338d1b167e
   - enabled: 1
     path: Assets/Scenes/happiestDay.unity
     guid: cadc1f6f2fa445145bc07a7307801bfc

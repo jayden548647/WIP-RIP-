@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public DialogueTrigger overHere;
     public DialogueTrigger introduction;
     public DialogueTrigger truth;
+    public DialogueTrigger purchase;
+    public DialogueTrigger egg;
     public Animator animator;
     
     public SpriteRenderer sr;
@@ -91,6 +93,7 @@ public class Player : MonoBehaviour
                 Manager.instance.SetRevives(revives);
                 Revive();
             }
+            MusicManager.instance.PlaySFX("Death");
         }
         enemyDefeats = Manager.instance.GetEnemies();
         revives = Manager.instance.GetRevives();
@@ -186,6 +189,7 @@ public class Player : MonoBehaviour
         {
             health -= 10 / defense;
             Manager.instance.SetHealth(health);
+            MusicManager.instance.PlaySFX("Hit");
         }
         if(collision.gameObject.tag == "UpgradeOpen")
         {
@@ -233,8 +237,9 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "MovingEnemy")
         {
             health -= 10 / defense;
+            MusicManager.instance.PlaySFX("Hit");
 
-        Manager.instance.SetHealth(health);
+            Manager.instance.SetHealth(health);
         }
         if(collision.gameObject.tag == "Finish")
         {
@@ -278,9 +283,9 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(3);
             MusicManager.instance.PlayMusic("ShopMusic");
         }
-        if(collision.gameObject.tag == "Egg")
+        if(collision.gameObject.tag == "egg")
         {
-            truth.TriggerDialogue();
+            egg.TriggerDialogue();
         }
     }
     
@@ -294,6 +299,7 @@ public class Player : MonoBehaviour
             Manager.instance.SetHealth(health);
             Manager.instance.SetEnemies(enemyDefeats);
             Manager.instance.SetEnemyUnlock(true);
+            purchase.TriggerDialogue();
         }
         if(enemyDefeats < 10 && health < (50 * healthMultiplier))
         {
@@ -315,6 +321,7 @@ public class Player : MonoBehaviour
             Manager.instance.SetTempDefense(tempDefense);
             Manager.instance.SetEnemies(enemyDefeats);
             Manager.instance.SetEnemyUnlock(true);
+            purchase.TriggerDialogue();
         }
         if(enemyDefeats < 40)
         {

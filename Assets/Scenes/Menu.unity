@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: MenuMusic
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 855e0022547a21b4c821b18dbf060475, type: 3}
   - name: LobbyMusic
     clip: {fileID: 8300000, guid: 9fe59c5402a4cde43a7d91a906b01584, type: 3}
   - name: RunMusic
@@ -1877,7 +1877,21 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bda7224689288284ca8ddd20707b755d, type: 3}
   - name: GameOverMusic
     clip: {fileID: 8300000, guid: d13b50713169360468c0abd30df1399c, type: 3}
-  sfxSounds: []
+  sfxSounds:
+  - name: Throw
+    clip: {fileID: 8300000, guid: e25f9a1ef01329343be64565dd030566, type: 3}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 60ee6d8026865e6458bce5d08d8c84b6, type: 3}
+  - name: Death
+    clip: {fileID: 8300000, guid: dc617810cc8f20943b036eee43eaf1cf, type: 3}
+  - name: Purchase
+    clip: {fileID: 8300000, guid: d314f5cfb05eaeb4395444289b3d44be, type: 3}
+  - name: Slash
+    clip: {fileID: 8300000, guid: e768be6095792e546adda75761ebf58a, type: 3}
+  - name: Dialogue
+    clip: {fileID: 8300000, guid: c738770705d83e84b85e50c4d3c71fa0, type: 3}
+  - name: Rejection
+    clip: {fileID: 8300000, guid: bb4792d4654d4c142a19e6f3f9a9f6f4, type: 3}
   musicSource: {fileID: 1429162950}
   sfxSource: {fileID: 1145604112}
 --- !u!1 &1145604111
@@ -2714,8 +2728,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 855e0022547a21b4c821b18dbf060475, type: 3}
+  m_Resource: {fileID: 8300000, guid: 855e0022547a21b4c821b18dbf060475, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

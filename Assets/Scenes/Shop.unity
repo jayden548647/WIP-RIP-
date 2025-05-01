@@ -210,6 +210,8 @@ MonoBehaviour:
   overHere: {fileID: 0}
   introduction: {fileID: 0}
   truth: {fileID: 0}
+  purchase: {fileID: 0}
+  egg: {fileID: 0}
   animator: {fileID: 9971432}
   sr: {fileID: 9971437}
 --- !u!50 &9971435
@@ -5889,6 +5891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438673084}
   - component: {fileID: 1438673083}
+  - component: {fileID: 1438673085}
   m_Layer: 0
   m_Name: PureGlitch_0
   m_TagString: Untagged
@@ -5966,6 +5969,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 125}
+--- !u!114 &1438673085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438673082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698d2e4b7417514ba5cae11eb340d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Cameila
+    sentences:
+    - Thanks for purchase!
 --- !u!1 &1443205286
 GameObject:
   m_ObjectHideFlags: 0

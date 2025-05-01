@@ -3324,6 +3324,7 @@ GameObject:
   - component: {fileID: 478044628}
   - component: {fileID: 478044627}
   - component: {fileID: 478044629}
+  - component: {fileID: 478044630}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -3447,6 +3448,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &478044630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478044626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7698d2e4b7417514ba5cae11eb340d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Cameila
+    sentences:
+    - Thanks for purchase!
 --- !u!1 &507628693
 GameObject:
   m_ObjectHideFlags: 0
@@ -10097,6 +10114,7 @@ MonoBehaviour:
   notUnlocked: {fileID: 1908307987}
   basicallyNo: {fileID: 1908307986}
   maxed: {fileID: 1908307989}
+  bought: {fileID: 0}
 --- !u!114 &1908307986
 MonoBehaviour:
   m_ObjectHideFlags: 0

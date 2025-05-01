@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        MusicManager.instance.PlaySFX("Dialogue");
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {

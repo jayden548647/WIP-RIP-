@@ -43,6 +43,7 @@ public class ButtonScript : MonoBehaviour
     if(endlessUnlocked == false)
         {
             endlessText.text = "lmDF2pq WxCP";
+            MusicManager.instance.PlaySFX("Rejection");
         }
     }
 
@@ -60,6 +61,7 @@ public class ButtonScript : MonoBehaviour
     public void MenuClick()
     {
         SceneManager.LoadScene(0);
+        MusicManager.instance.PlayMusic("MenuMusic");
         Time.timeScale = 1f;
     }
     public void HubClick()

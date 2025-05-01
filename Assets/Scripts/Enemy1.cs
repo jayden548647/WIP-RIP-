@@ -10,6 +10,7 @@ public class Enemy1 : MonoBehaviour
     float defeatMultiplier;
     public TMP_Text damageBuy;
     public DialogueTrigger cantAfford;
+    public DialogueTrigger bought;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +70,7 @@ public class Enemy1 : MonoBehaviour
             Manager.instance.SetTempDamageBoost(tempDamageBoost);
             Manager.instance.SetEnemies(defeat);
             Manager.instance.SetEnemyUnlock(true);
+            bought.TriggerDialogue();
         }
         if(defeat < 100)
         {

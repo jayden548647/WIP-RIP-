@@ -55,12 +55,14 @@ public class Shooting : MonoBehaviour
                     canSlash = false;
                 }
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                MusicManager.instance.PlaySFX("Throw");
             }
 
             if (Input.GetMouseButtonDown(1) && canSlash)
             {
                 canSlash = false;
                 Instantiate(slash, bulletTransform.position, Quaternion.identity);
+                MusicManager.instance.PlaySFX("Slash");
             }
         }
 

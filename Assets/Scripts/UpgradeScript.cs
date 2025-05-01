@@ -42,6 +42,7 @@ public class UpgradeScript : MonoBehaviour
     public DialogueTrigger notUnlocked;
     public DialogueTrigger basicallyNo;
     public DialogueTrigger maxed;
+    public DialogueTrigger bought;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -136,6 +137,8 @@ public class UpgradeScript : MonoBehaviour
             healthBought += 1;
             Manager.instance.SetHealthMultiplier(healthBought + 1);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
 
         if (Manager.instance.GetBits() < 40 * (healthPriceIncreaseScale * (healthBought + 1)) && healthBought < 5)
@@ -155,6 +158,8 @@ public class UpgradeScript : MonoBehaviour
             defenseBought += 1;
             Manager.instance.SetDefense(defenseBought + 1);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if(Manager.instance.GetBits() < 50 *  (defensePriceIncreaseScale * (defenseBought + 1)) && defenseBought < 3)
         {
@@ -173,6 +178,8 @@ public class UpgradeScript : MonoBehaviour
             attackBought += 1;
             Manager.instance.SetDamageBoost(attackBought + 1);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if(Manager.instance.GetBits() < 100 * (attackPriceIncreaseScale * (attackBought + 1)) && attackBought < 3)
         {
@@ -191,6 +198,8 @@ public class UpgradeScript : MonoBehaviour
             rangeBought += 1;
             Manager.instance.SetRangeUpgrade(rangeBought);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if(Manager.instance.GetBits() < 40 * (rangePriceIncreaseScale * (rangeBought + 1)) && rangeBought < 4)
         {
@@ -210,6 +219,8 @@ public class UpgradeScript : MonoBehaviour
             skipBought += 1;
             Manager.instance.SetRoomSkip(skipBought);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if(Manager.instance.GetBits() < 75 * (skipPriceIncreaseScale * (skipBought + 1)) && skipBought < 5)
         {
@@ -228,6 +239,8 @@ public class UpgradeScript : MonoBehaviour
             reviveBought += 1;
             Manager.instance.SetRevives(reviveBought);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if (Manager.instance.GetBits() < 200 * (revivePriceIncreaseScale * (reviveBought + 1)) && reviveBought < 2 && reviveUnlocked)
         {
@@ -254,6 +267,8 @@ public class UpgradeScript : MonoBehaviour
             enemyBought += 1;
             Manager.instance.SetEnemyMultipler(enemyBought + 1);
             Manager.instance.SetBits(bits);
+            MusicManager.instance.PlaySFX("Purchase");
+            bought.TriggerDialogue();
         }
         if(Manager.instance.GetBits() < 200 * (enemyPriceIncreaseScale * (enemyBought + 1)) && enemyBought < 2 && enemyUnlocked)
         {
@@ -277,6 +292,7 @@ public class UpgradeScript : MonoBehaviour
         if(Manager.instance.GetBits() >= 1000000 && fixUnlocked)
         {
             Debug.Log("To da boss");
+            Manager.instance.SetRoom(127);
         }
         if(Manager.instance.GetBits() < 1000000 && fixUnlocked)
         {
