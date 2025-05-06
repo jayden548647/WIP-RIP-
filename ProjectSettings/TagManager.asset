@@ -23,6 +23,7 @@ TagManager:
   - Story
   - ShopExit
   - egg
+  - FinalGate
   layers:
   - Default
   - TransparentFX

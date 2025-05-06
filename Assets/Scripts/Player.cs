@@ -251,16 +251,20 @@ public class Player : MonoBehaviour
                 MusicManager.instance.PlayMusic("ShopMusic");
                 SceneManager.LoadScene(3);
             }
+            if(roomsCleared == 99)
+            {
+                SceneManager.LoadScene(6);
+            }
             
             else
             {
-                rng = Random.Range(6, 24);
+                rng = Random.Range(8, 28);
                 SceneManager.LoadScene(rng);
             }
         }
         if(collision.gameObject.tag == "ShopExit")
         {
-            rng = Random.Range(6, 24);
+            rng = Random.Range(8, 28);
             SceneManager.LoadScene(rng);
             MusicManager.instance.PlayMusic("RunMusic");
             
@@ -272,6 +276,10 @@ public class Player : MonoBehaviour
             Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
             health = 50 * healthMultiplier;
             
+        }
+        if(collision.gameObject.tag == "FinalGate")
+        {
+            SceneManager.LoadScene(7);
         }
         if(collision.gameObject.tag == "secret")
         {

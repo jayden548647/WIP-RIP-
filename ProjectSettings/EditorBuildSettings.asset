@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Secret.unity
     guid: 91f8e6a4a6df50f4d9c42822d519d407
   - enabled: 1
+    path: Assets/Scenes/FinalCorridor.unity
+    guid: e14fb56252b8f4d4d9c4179da8015d38
+  - enabled: 1
+    path: Assets/Scenes/SemiFinalArena.unity
+    guid: a6c71912b52445f4cb1809f6ed008c98
+  - enabled: 1
     path: Assets/Scenes/Empty3.unity
     guid: 01af8719d2dca28498b1d56bbe1b535b
   - enabled: 1
