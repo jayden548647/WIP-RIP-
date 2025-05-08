@@ -258,16 +258,17 @@ public class Player : MonoBehaviour
             
             else
             {
-                rng = Random.Range(8, 28);
+                rng = Random.Range(10, 30);
                 SceneManager.LoadScene(rng);
             }
         }
         if(collision.gameObject.tag == "ShopExit")
         {
-            rng = Random.Range(8, 28);
+            rng = Random.Range(10, 30);
             SceneManager.LoadScene(rng);
             MusicManager.instance.PlayMusic("RunMusic");
-            
+            roomsCleared++;
+            Manager.instance.SetRoom(roomsCleared);
         }
         if(collision.gameObject.tag == "Enter")
         {
@@ -280,6 +281,9 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "FinalGate")
         {
             SceneManager.LoadScene(7);
+            MusicManager.instance.PlayMusic("OtherYou");
+            roomsCleared++;
+            Manager.instance.SetRoom(roomsCleared);
         }
         if(collision.gameObject.tag == "secret")
         {

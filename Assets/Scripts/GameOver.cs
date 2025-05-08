@@ -52,6 +52,7 @@ public class GameOver : MonoBehaviour
         if(Manager.instance.GetRoom() >= 100)
         {
             encouragement.color = Color.white;
+            Manager.instance.SetUSkipUnlock(true);
         }
 
         timer += Time.deltaTime;

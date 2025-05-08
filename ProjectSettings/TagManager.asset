@@ -24,6 +24,7 @@ TagManager:
   - ShopExit
   - egg
   - FinalGate
+  - EnemyMelee
   layers:
   - Default
   - TransparentFX

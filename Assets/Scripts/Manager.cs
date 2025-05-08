@@ -25,6 +25,7 @@ public class Manager : MonoBehaviour
     public bool unlockFix;
     public bool spoken1;
     public bool spoken2;
+    public bool cherraDefeated;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -227,6 +228,14 @@ public class Manager : MonoBehaviour
     public bool GetSpeak2()
     {
         return spoken2; ;
+    }
+    public void SetCherra(bool cherra)
+    {
+        cherraDefeated = cherra;
+    }
+    public bool GetCherra()
+    {
+        return cherraDefeated;
     }
 
     public void SaveGame()

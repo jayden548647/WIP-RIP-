@@ -64,5 +64,6 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Dialogue");
         animator.SetBool("dialogue", false);
+        
     }
 }
