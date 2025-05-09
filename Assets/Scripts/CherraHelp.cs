@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CherraHelp : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class CherraHelp : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = -player.linearVelocity;
-        if(heal)
+        if(health <= 0)
+        {
+            SceneManager.LoadScene(9);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

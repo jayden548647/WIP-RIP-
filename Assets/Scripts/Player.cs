@@ -78,6 +78,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.P))
+        {
+            Manager.instance.SetRoomSkip(19);
+        }
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(health <= 0)
         {
