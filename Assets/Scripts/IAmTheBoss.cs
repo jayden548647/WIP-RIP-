@@ -9,6 +9,7 @@ public class IAmTheBoss : MonoBehaviour
     public float attack;
     public float attackWait;
     public float health;
+    public float immunity;
     public float speed = 1.25f;
     public int boom;
     public GameObject bit;
@@ -32,21 +33,7 @@ public class IAmTheBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switchsides -= Time.deltaTime;
-        if(switchsides < 0)
-        {
-            switchsides = Random.Range(500, 2000) / 100;
-            if (transform.position.x < -0.1)
-            {
-                SideRight();
-            }
-            if(transform.position.x > 0.1)
-            {
-                SideLeft();
-            }
-           
-            
-        }
+        
         if(boom > 0)
         {
             Instantiate(bit);
@@ -67,6 +54,10 @@ public class IAmTheBoss : MonoBehaviour
                 attack = 0;
             }
             attackWait = Random.Range(100, 200) / 100;
+        }
+        if(immunity > 0)
+        {
+            immunity -= Time.deltaTime;
         }
     }
     private void FixedUpdate()
@@ -98,9 +89,13 @@ public class IAmTheBoss : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Attack" || collision.gameObject.tag == "EnemyAttack")
+        if (collision.gameObject.tag == "Attack" || collision.gameObject.tag == "EnemyAttack")
         {
-            health -= 1;
+            if (immunity <= 0)
+            {
+                health -= 1;
+                immunity = 2;
+            }
         }
     }
 }
