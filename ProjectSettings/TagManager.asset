@@ -25,6 +25,8 @@ TagManager:
   - egg
   - FinalGate
   - EnemyMelee
+  - BossAttack
+  - RightPos
   layers:
   - Default
   - TransparentFX

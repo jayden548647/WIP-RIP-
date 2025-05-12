@@ -28,7 +28,7 @@ public class CherraHelp : MonoBehaviour
     {
         if(collision.gameObject.tag == "Attack" || collision.gameObject.tag == "BossAttack")
         {
-            health -= (10/defense);
+            health -= (10);
             Manager.instance.SetHealth(health);
             MusicManager.instance.PlaySFX("Hit");
         }

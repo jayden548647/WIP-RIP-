@@ -21,7 +21,10 @@ public class PauseScript : MonoBehaviour
     public void Pause()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        if (Manager.instance.GetRoom() != 127)
+        {
+            Time.timeScale = 0f;
+        }
     }
     
         

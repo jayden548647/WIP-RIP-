@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UpgradeScript : MonoBehaviour
 {
@@ -292,6 +293,10 @@ public class UpgradeScript : MonoBehaviour
         if(Manager.instance.GetBits() >= 1000000 && fixUnlocked)
         {
             Debug.Log("To da boss");
+            SceneManager.LoadScene(8);
+            MusicManager.instance.musicSource.volume = 0.25f;
+            MusicManager.instance.PlaySFX("TooLate");
+            MusicManager.instance.PlayMusic("WaitForTheWorld");
             Manager.instance.SetRoom(127);
         }
         if(Manager.instance.GetBits() < 1000000 && fixUnlocked)

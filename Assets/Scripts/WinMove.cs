@@ -11,6 +11,8 @@ public class WinMove : MonoBehaviour
     void Start()
     {
         MoveCountdown = 12.7f;
+        MoveMainWindowTo(960, 540);
+        Application.runInBackground = true;
     }
 
     // Update is called once per frame

@@ -21,6 +21,8 @@ public class ReadTime : MonoBehaviour
         {
             SceneManager.LoadScene(8);
             MusicManager.instance.PlayMusic("WaitForTheWorld");
+            MusicManager.instance.PlaySFX("TooLate");
+            MusicManager.instance.musicSource.volume = 0.25f;
             Manager.instance.SetCherra(false);
         }
     }

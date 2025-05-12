@@ -66,7 +66,7 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Manager.instance.GetRoom() != 127)
         {
             paused = true;
         }

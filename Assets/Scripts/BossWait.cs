@@ -19,6 +19,7 @@ public class BossWait : MonoBehaviour
             SceneManager.LoadScene(9);
             Manager.instance.SetRoom(127);
             MusicManager.instance.PlayMusic("BuggedBattle");
+            MusicManager.instance.musicSource.volume = 1;
             Manager.instance.SetTempDamageBoost(0);
             Manager.instance.SetRevives(0);
         }

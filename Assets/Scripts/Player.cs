@@ -87,9 +87,15 @@ public class Player : MonoBehaviour
         {
             if (revives <= 0)
             {
-                SceneManager.LoadScene(4);
-                MusicManager.instance.PlayMusic("GameOverMusic");
-                
+                if (roomsCleared != 127)
+                {
+                    SceneManager.LoadScene(4);
+                    MusicManager.instance.PlayMusic("GameOverMusic");
+                }
+                if(roomsCleared == 127)
+                {
+                    SceneManager.LoadScene(9);
+                }
             }
             else
             {
@@ -189,9 +195,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack" || collision.gameObject.tag == "MovingEnemy")
+        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack")
         {
             health -= 10 / defense;
+            Manager.instance.SetHealth(health);
+            MusicManager.instance.PlaySFX("Hit");
+        }
+        if(collision.gameObject.tag == "BossAttack")
+        {
+            health -= 10;
             Manager.instance.SetHealth(health);
             MusicManager.instance.PlaySFX("Hit");
         }
