@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.Rendering;
 
 public class IAmTheBoss : MonoBehaviour
@@ -13,21 +14,25 @@ public class IAmTheBoss : MonoBehaviour
     public float speed = 1.25f;
     public int boom;
     public GameObject bit;
-    public Vector2 leftpos;
-    public Vector2 rightpos;
+    public GameObject virus;
+    public GameObject tree;
+    public GameObject minion;
+    public Vector2 minionXpos;
+    public Vector2 minionYpos;
     public Transform rightposition;
     public Transform leftposition;
     public DialogueTrigger dontGetDistracted;
+    public TMP_Text healthText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = 127;
-        speed = 2;
-        leftpos = leftposition.position;
-        rightpos = rightposition.position;
+        healthText.text = "Boss Health: " + health + "/127";
+        speed = 6;
+        
         switchsides = Random.Range(500, 2000) / 100;
         attackWait = Random.Range(100, 300) / 100;
-        movechange = 2;
+        movechange = 0;
     }
 
     // Update is called once per frame
@@ -53,7 +58,18 @@ public class IAmTheBoss : MonoBehaviour
                 DialogueDistraction();
                 attack = 0;
             }
-            attackWait = Random.Range(100, 200) / 100;
+            if(attack == 3)
+            {
+                MassInfection();
+                attack = 0;
+            }
+            if (attack == 4)
+            {
+                PointingForests();
+                attack = 0;
+            }
+            
+            attackWait = Random.Range(0, 200) / 100;
         }
         if(immunity > 0)
         {
@@ -65,9 +81,9 @@ public class IAmTheBoss : MonoBehaviour
         movechange -= Time.deltaTime;
         if (movechange < 0)
         {
-            Vector2 Movement = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+            Vector2 Movement = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
             rb.AddForce(Movement * speed);
-            movechange = Random.Range(1, 2);
+            movechange = Random.Range(2, 3);
         }
     }
     public void BitBoom()
@@ -78,14 +94,15 @@ public class IAmTheBoss : MonoBehaviour
     {
         dontGetDistracted.TriggerDialogue();
     }
-    public void SideRight()
+    public void MassInfection()
     {
-        transform.position = rightpos;
+        Instantiate(virus);
     }
-    public void SideLeft()
+    public void PointingForests()
     {
-        transform.position = leftpos;
+        Instantiate(tree);
     }
+    
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -93,8 +110,9 @@ public class IAmTheBoss : MonoBehaviour
         {
             if (immunity <= 0)
             {
-                health -= 1;
+                health -= 1.27f;
                 immunity = 2;
+                healthText.text = "Boss Health: " + health + "/127";
             }
         }
     }
