@@ -1883,6 +1883,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 83258bcbf6394ca4e99ae2f202ce4f4b, type: 3}
   - name: WaitForTheWorld
     clip: {fileID: 8300000, guid: d13b50713169360468c0abd30df1399c, type: 3}
+  - name: End
+    clip: {fileID: 8300000, guid: d1c29c15a52420f44949823e8b34e51e, type: 3}
   sfxSounds:
   - name: Throw
     clip: {fileID: 8300000, guid: e25f9a1ef01329343be64565dd030566, type: 3}
@@ -1900,6 +1902,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bb4792d4654d4c142a19e6f3f9a9f6f4, type: 3}
   - name: TooLate
     clip: {fileID: 8300000, guid: 10063e17169f485428639560d92dbbdc, type: 3}
+  - name: NotOver
+    clip: {fileID: 8300000, guid: e69c6941f2bc22f429e3c50ecd24e259, type: 3}
+  - name: NoBreak
+    clip: {fileID: 8300000, guid: 7d13734ce14120746b87658e79cedb99, type: 3}
   musicSource: {fileID: 1429162950}
   sfxSource: {fileID: 1145604112}
 --- !u!1 &1145604111

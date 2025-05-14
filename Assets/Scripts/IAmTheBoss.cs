@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class IAmTheBoss : MonoBehaviour
 {
@@ -74,6 +75,17 @@ public class IAmTheBoss : MonoBehaviour
         if(immunity > 0)
         {
             immunity -= Time.deltaTime;
+        }
+        if(health <= 0)
+        {
+            SceneManager.LoadScene(10);
+            Manager.instance.SetEndlessUnlock(true);
+            MusicManager.instance.PlayMusic("End");
+            MusicManager.instance.musicSource.loop = false;
+        }
+        if(Input.GetKey(KeyCode.K))
+        {
+            health = 12.7f;
         }
     }
     private void FixedUpdate()
