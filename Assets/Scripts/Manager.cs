@@ -17,6 +17,7 @@ public class Manager : MonoBehaviour
     public float reviveCount;
     public float enemyBoost;
     public float saveTimer;
+    public float highScore;
     public bool unlockRevives;
     public bool unlockEnemy;
     public bool unlockEndless;
@@ -237,6 +238,14 @@ public class Manager : MonoBehaviour
     {
         return cherraDefeated;
     }
+    public void SetHighScore(float finalRoom)
+    {
+        highScore = finalRoom;
+    }
+    public float GetHighScore()
+    {
+        return highScore;
+    }
 
     public void SaveGame()
     {
@@ -257,6 +266,7 @@ public class Manager : MonoBehaviour
         unlockEnemy = data.enemyUnlocked;
         unlockEndless = data.endlessUnlocked;
         unlockBillian = data.billianUnlocked;
+        highScore = data.highScore;
         unlockFix = data.fixUnlocked;
         spoken1 = data.spoken1;
         spoken2 = data.spoken2;
@@ -272,6 +282,7 @@ public class Manager : MonoBehaviour
         reviveCount = 0;
         enemyBoost = 0;
         bitsCount = 0;
+        highScore = 0;
         unlockRevives = false;
         unlockEnemy = false;
         unlockEndless = false;

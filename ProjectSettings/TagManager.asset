@@ -28,6 +28,7 @@ TagManager:
   - BossAttack
   - RightPos
   - LeftPos
+  - BILLIAN
   layers:
   - Default
   - TransparentFX

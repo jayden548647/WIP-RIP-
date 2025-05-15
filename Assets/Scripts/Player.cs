@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public float roomsCleared;
     public float enemyDefeats;
     public float revives;
+    public float highScore;
     private int rng;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         startPos = transform.position;
         spokenToCam = Manager.instance.GetSpeak1();
         spokenToCam2 = Manager.instance.GetSpeak2();
+        highScore = Manager.instance.GetHighScore();
         if(Manager.instance.GetHealthMultiplier() == 0)
         {
             healthMultiplier = 1;
@@ -91,10 +93,16 @@ public class Player : MonoBehaviour
                 {
                     SceneManager.LoadScene(4);
                     MusicManager.instance.PlayMusic("GameOverMusic");
+
                 }
                 if(roomsCleared == 127)
                 {
                     SceneManager.LoadScene(9);
+                }
+                if(Manager.instance.GetEndlessActive() == true)
+                {
+                    SceneManager.LoadScene(0);
+                    MusicManager.instance.PlayMusic("MenuMusic");
                 }
             }
             else
@@ -257,6 +265,12 @@ public class Player : MonoBehaviour
 
             Manager.instance.SetHealth(health);
         }
+        if(collision.gameObject.tag == "BILLIAN")
+        {
+            health = 0;
+            MusicManager.instance.PlaySFX("Hit");
+            Manager.instance.SetHealth(health);
+        }
         if(collision.gameObject.tag == "Finish")
         {
             roomsCleared++;
@@ -276,14 +290,25 @@ public class Player : MonoBehaviour
 
                 else
                 {
-                    rng = Random.Range(11, 32);
+                    rng = Random.Range(13, 34);
                     SceneManager.LoadScene(rng);
+                    
                 }
             }
             if(Manager.instance.inEndless == true)
             {
-                rng = Random.Range(11, 32);
+                rng = Random.Range(13, 34);
                 SceneManager.LoadScene(rng);
+                if(roomsCleared == 127)
+                {
+                    SceneManager.LoadScene(11);
+                    Manager.instance.SetUnlockBillian(true);
+                }
+                if(roomsCleared > highScore)
+                {
+                    highScore = roomsCleared;
+                    Manager.instance.SetHighScore(highScore);
+                }
             }
         }
         if(collision.gameObject.tag == "ShopExit")

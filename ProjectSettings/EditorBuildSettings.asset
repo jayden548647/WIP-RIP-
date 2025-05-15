@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SorryLink.unity
     guid: 755aeff09783fb44791459f49949fba0
   - enabled: 1
+    path: Assets/Scenes/BillianBeginning.unity
+    guid: 49f77bffb9728714ea97f0306219a3c3
+  - enabled: 1
+    path: Assets/Scenes/BillianSpawn.unity
+    guid: 62ec8109f13dc1644a60566d22a8449c
+  - enabled: 1
     path: Assets/Scenes/Empty3.unity
     guid: 01af8719d2dca28498b1d56bbe1b535b
   - enabled: 1

@@ -25,6 +25,10 @@ public class PauseScript : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
+        if(Manager.instance.GetRoom() == 127)
+        {
+            MusicManager.instance.PlaySFX("NoBreak");
+        }
     }
     
         

@@ -11,6 +11,7 @@ public class PlayerData
     public float enemyMultiplier;
     public float roomSkip;
     public float rangeUpgrade;
+    public float highScore;
     public bool spoken1;
     public bool spoken2;
     public bool reviveUnlocked;
@@ -36,5 +37,6 @@ public class PlayerData
         fixUnlocked = manager.unlockFix;
         endlessUnlocked = manager.unlockEndless;
         billianUnlocked = manager.unlockBillian;
+        highScore = manager.highScore;
     }
 }

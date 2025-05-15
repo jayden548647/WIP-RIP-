@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: gameBeat
+    m_ConditionEvent: Beaten
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4600316666865261723}
@@ -61,7 +61,7 @@ AnimatorController:
   m_Name: RipWip_0
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: gameBeat
+  - m_Name: Beaten
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

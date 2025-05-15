@@ -198,6 +198,7 @@ MonoBehaviour:
   roomsCleared: 0
   enemyDefeats: 0
   revives: 0
+  highScore: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
   shopMenu: {fileID: 1189671799}
@@ -1647,7 +1648,7 @@ MonoBehaviour:
   animator: {fileID: 647731013}
   nameText: {fileID: 681521918}
   dialogueText: {fileID: 1595548180}
-  dialoguePortrait: {fileID: 0}
+  dialoguePortrait: {fileID: 701895427}
 --- !u!4 &412829974
 Transform:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class ButtonScript : MonoBehaviour
     }
     void Start()
     {
-        
+        endlessUnlocked = Manager.instance.GetEndlessUnlock();
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class ButtonScript : MonoBehaviour
         Manager.instance.SetEnemies(0);
         Manager.instance.SetTempDefense(0);
         Manager.instance.SetTempDamageBoost(0);
+        Manager.instance.SetEndlessActive(false);
     }
 
     public void EndlessClick()
@@ -45,8 +46,21 @@ public class ButtonScript : MonoBehaviour
             endlessText.text = "lmDF2pq WxCP";
             MusicManager.instance.PlaySFX("Rejection");
         }
+    if(endlessUnlocked == true)
+        {
+            MusicManager.instance.PlayMusic("RunMusic");
+            SceneManager.LoadScene(2);
+            Manager.instance.SetRoom(0);
+            Manager.instance.SetEndlessActive(true);
+        }
     }
-
+    public void BillianClick()
+    {
+        SceneManager.LoadScene(12);
+        MusicManager.instance.PlayMusic("RunMusic");
+        Manager.instance.SetRoom(0);
+        Manager.instance.SetEndlessActive(true);
+    }
     public void QuitClick()
     {
         print("quit");
@@ -72,6 +86,11 @@ public class ButtonScript : MonoBehaviour
         Manager.instance.SetEnemies(0);
         Manager.instance.SetTempDefense(0);
         Manager.instance.SetTempDamageBoost(0);
+    }
+    public void End()
+    {
+        Manager.instance.SaveGame();
+        Application.Quit();
     }
     public void DeleteClick()
     {

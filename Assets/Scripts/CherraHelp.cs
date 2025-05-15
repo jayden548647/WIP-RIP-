@@ -21,6 +21,7 @@ public class CherraHelp : MonoBehaviour
         if(health <= 0)
         {
             SceneManager.LoadScene(9);
+            MusicManager.instance.PlaySFX("NotOver");
         }
     }
 
