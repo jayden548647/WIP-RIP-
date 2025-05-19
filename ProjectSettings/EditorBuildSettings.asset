@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BillianSpawn.unity
     guid: 62ec8109f13dc1644a60566d22a8449c
   - enabled: 1
+    path: Assets/Scenes/BillEnd.unity
+    guid: 5c641a41c0fb7074d8437baa29497857
+  - enabled: 1
     path: Assets/Scenes/Empty3.unity
     guid: 01af8719d2dca28498b1d56bbe1b535b
   - enabled: 1
@@ -107,6 +110,60 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 14ce249c32db7d54da35c5f9129018b6
+  - enabled: 1
+    path: Assets/Scenes/Vanity.unity
+    guid: ced31846307df024fb24e16548cb27ee
+  - enabled: 1
+    path: Assets/Scenes/Fourest.unity
+    guid: d7834895b3978664b9199b0bc16e6b20
+  - enabled: 1
+    path: Assets/Scenes/Pit.unity
+    guid: 4a97f3a3bbdcd1241b0c8ef2d8c7c8b0
+  - enabled: 1
+    path: Assets/Scenes/EvilCanyon.unity
+    guid: 6ba2232a91fdebd498be439594701cfc
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: b2d1c823ec912ea4b93c5450d5a6fc8f
+  - enabled: 1
+    path: Assets/Scenes/PLAYAGAIME.unity
+    guid: 226c57c3a35398e4eba574754e4b8372
+  - enabled: 1
+    path: Assets/Scenes/AbandonedBase.unity
+    guid: dc71f3ec5c3f18f40be3adffc22f495f
+  - enabled: 1
+    path: Assets/Scenes/Heart.unity
+    guid: a850ebea39a1601439666aa8f7a6f329
+  - enabled: 1
+    path: Assets/Scenes/UnHeart.unity
+    guid: 9b1276f20243c02449e2a8f058514bb5
+  - enabled: 1
+    path: Assets/Scenes/AreYouLost.unity
+    guid: 986577b77e9d55942983ccb3a22ddfbb
+  - enabled: 1
+    path: Assets/Scenes/Break.unity
+    guid: 851c8f8d7419b9944bd97ba431829e5a
+  - enabled: 1
+    path: Assets/Scenes/Genesis.unity
+    guid: 48900bc417442614d9669605c97a5b7d
+  - enabled: 1
+    path: Assets/Scenes/blitz.unity
+    guid: 8a3edd16556dc974da1b6613721a5826
+  - enabled: 1
+    path: Assets/Scenes/DarkRoom.unity
+    guid: 583556b5a7eddab47b218ed6b93a8a1d
+  - enabled: 1
+    path: Assets/Scenes/DarkRoom2.unity
+    guid: 610ac537b9850fa44880a0988d00facf
+  - enabled: 1
+    path: Assets/Scenes/huh.unity
+    guid: cac445bb9f179214097b571fdb044462
+  - enabled: 1
+    path: Assets/Scenes/void.unity
+    guid: a388f80455ca11b47baca020fa0d8609
+  - enabled: 1
+    path: Assets/Scenes/LastRoom.unity
+    guid: 87f66d01656c23e409954ef83a1a38f0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

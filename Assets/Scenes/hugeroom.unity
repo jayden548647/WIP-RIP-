@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Doop
+    name: doop
     sentences:
     - Hey there, PC!
     - I'm not sure why everyting here is so big.
@@ -3537,6 +3537,7 @@ MonoBehaviour:
   roomsCleared: 0
   enemyDefeats: 0
   revives: 0
+  highScore: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
   shopMenu: {fileID: 0}

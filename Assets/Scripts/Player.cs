@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack")
+        if(collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Attack" || collision.gameObject.tag == "MovingEnemy")
         {
             health -= 10 / defense;
             Manager.instance.SetHealth(health);
@@ -255,6 +255,13 @@ public class Player : MonoBehaviour
         {
             truth.TriggerDialogue();
         }
+        if (collision.gameObject.tag == "BILLIAN")
+        {
+            health = 0;
+            MusicManager.instance.PlaySFX("Hit");
+            Manager.instance.SetHealth(health);
+            TheChaser.instance.EndRun();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -265,12 +272,7 @@ public class Player : MonoBehaviour
 
             Manager.instance.SetHealth(health);
         }
-        if(collision.gameObject.tag == "BILLIAN")
-        {
-            health = 0;
-            MusicManager.instance.PlaySFX("Hit");
-            Manager.instance.SetHealth(health);
-        }
+        
         if(collision.gameObject.tag == "Finish")
         {
             roomsCleared++;
@@ -290,14 +292,14 @@ public class Player : MonoBehaviour
 
                 else
                 {
-                    rng = Random.Range(13, 34);
+                    rng = Random.Range(14, 53);
                     SceneManager.LoadScene(rng);
                     
                 }
             }
             if(Manager.instance.inEndless == true)
             {
-                rng = Random.Range(13, 34);
+                rng = Random.Range(14, 53);
                 SceneManager.LoadScene(rng);
                 if(roomsCleared == 127)
                 {
@@ -313,7 +315,7 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.tag == "ShopExit")
         {
-            rng = Random.Range(11, 32);
+            rng = Random.Range(11, 53);
             SceneManager.LoadScene(rng);
             MusicManager.instance.PlayMusic("RunMusic");
             roomsCleared++;

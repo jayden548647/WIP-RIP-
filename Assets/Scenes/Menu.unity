@@ -1335,6 +1335,7 @@ GameObject:
   - component: {fileID: 633177089}
   - component: {fileID: 633177088}
   - component: {fileID: 633177087}
+  - component: {fileID: 633177091}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1385,7 +1386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 633177088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 633177091}
+        m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
+        m_MethodName: BillianClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &633177088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1457,19 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &633177091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633177086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e6229b8a33d554582b738abdb0af46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endlessText: {fileID: 0}
 --- !u!1 &658924978
 GameObject:
   m_ObjectHideFlags: 0

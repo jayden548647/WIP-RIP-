@@ -37,6 +37,7 @@ public class ButtonScript : MonoBehaviour
         Manager.instance.SetTempDefense(0);
         Manager.instance.SetTempDamageBoost(0);
         Manager.instance.SetEndlessActive(false);
+        TheChaser.instance.EndRun();
     }
 
     public void EndlessClick()
@@ -52,6 +53,7 @@ public class ButtonScript : MonoBehaviour
             SceneManager.LoadScene(2);
             Manager.instance.SetRoom(0);
             Manager.instance.SetEndlessActive(true);
+            TheChaser.instance.EndRun();
         }
     }
     public void BillianClick()
@@ -60,6 +62,7 @@ public class ButtonScript : MonoBehaviour
         MusicManager.instance.PlayMusic("RunMusic");
         Manager.instance.SetRoom(0);
         Manager.instance.SetEndlessActive(true);
+        TheChaser.instance.BeginRun();
     }
     public void QuitClick()
     {
@@ -77,6 +80,7 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene(0);
         MusicManager.instance.PlayMusic("MenuMusic");
         Time.timeScale = 1f;
+        TheChaser.instance.EndRun();
     }
     public void HubClick()
     {

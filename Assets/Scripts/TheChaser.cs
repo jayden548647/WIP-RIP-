@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 public class TheChaser : MonoBehaviour
 {
@@ -23,18 +24,35 @@ public class TheChaser : MonoBehaviour
     }
     void Start()
     {
-        transform.position = position;
-        player = GameObject.FindGameObjectWithTag("Player");
+        position = new Vector2(0, -25);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        position = transform.position;
+
+        
         if (player == null)
         {
             Destroy(gameObject);
         }
+
+        if(Manager.instance.GetRoom() == 127)
+        {
+            SceneManager.LoadScene(13);
+            EndRun();
+            Manager.instance.SetBits(1000000000);
+        }
+    }
+    public void BeginRun()
+    {
+        transform.position = position;
+    }
+    public void EndRun()
+    {
+        Destroy(gameObject);
     }
 }
