@@ -118,7 +118,7 @@ public class IAmTheBoss : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Attack" || collision.gameObject.tag == "EnemyAttack")
+        if (collision.gameObject.tag == "Attack" || collision.gameObject.tag == "EnemyAttack" || collision.gameObject.tag == "MeleeAttack")
         {
             if (immunity <= 0)
             {

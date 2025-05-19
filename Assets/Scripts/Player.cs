@@ -84,6 +84,10 @@ public class Player : MonoBehaviour
         {
             Manager.instance.SetRoomSkip(19);
         }
+        if(Input.GetKey(KeyCode.O))
+        {
+            Manager.instance.SetRoomSkip(0);
+        }
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if(health <= 0)
         {
