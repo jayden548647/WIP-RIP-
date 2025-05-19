@@ -27,6 +27,7 @@ public class Manager : MonoBehaviour
     public bool spoken1;
     public bool spoken2;
     public bool cherraDefeated;
+    public bool billianBeaten;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -246,6 +247,14 @@ public class Manager : MonoBehaviour
     {
         return highScore;
     }
+    public void SetBillOver(bool billBeat)
+    {
+        billianBeaten = billBeat;
+    }
+    public bool GetBillOver()
+    {
+        return billianBeaten;
+    }
 
     public void SaveGame()
     {
@@ -266,6 +275,7 @@ public class Manager : MonoBehaviour
         unlockEnemy = data.enemyUnlocked;
         unlockEndless = data.endlessUnlocked;
         unlockBillian = data.billianUnlocked;
+        billianBeaten = data.billianBeaten;
         highScore = data.highScore;
         unlockFix = data.fixUnlocked;
         spoken1 = data.spoken1;
@@ -287,6 +297,7 @@ public class Manager : MonoBehaviour
         unlockEnemy = false;
         unlockEndless = false;
         unlockBillian = false;
+        billianBeaten = false;
         unlockFix = false;
         spoken1 = false;
         spoken2 = false;

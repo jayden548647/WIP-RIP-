@@ -45,6 +45,7 @@ public class TheChaser : MonoBehaviour
             SceneManager.LoadScene(13);
             EndRun();
             Manager.instance.SetBits(1000000000);
+            Manager.instance.SetBillOver(true);
         }
     }
     public void BeginRun()

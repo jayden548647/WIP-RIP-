@@ -19,6 +19,7 @@ public class PlayerData
     public bool fixUnlocked;
     public bool endlessUnlocked;
     public bool billianUnlocked;
+    public bool billianBeaten;
 
     public PlayerData (Manager manager)
     {
@@ -38,5 +39,6 @@ public class PlayerData
         endlessUnlocked = manager.unlockEndless;
         billianUnlocked = manager.unlockBillian;
         highScore = manager.highScore;
+        billianBeaten = manager.billianBeaten;
     }
 }
