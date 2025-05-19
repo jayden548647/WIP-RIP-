@@ -99,5 +99,6 @@ public class ButtonScript : MonoBehaviour
     public void DeleteClick()
     {
         Manager.instance.ClearSave();
+        Application.Quit();
     }
 }
