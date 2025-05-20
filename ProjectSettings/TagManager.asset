@@ -29,6 +29,8 @@ TagManager:
   - RightPos
   - LeftPos
   - BILLIAN
+  - Guests
+  - LobbyReturn
   layers:
   - Default
   - TransparentFX

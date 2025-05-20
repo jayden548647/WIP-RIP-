@@ -5,6 +5,7 @@ public class WinMove : MonoBehaviour
     public int WinPosX;
     public int WinPosY;
     public float MoveCountdown;
+    public bool MoveWin;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,18 +14,31 @@ public class WinMove : MonoBehaviour
         MoveCountdown = 12.7f;
         MoveMainWindowTo(960, 540);
         Application.runInBackground = true;
+        MoveWin = Manager.instance.GetWinFreeze();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveCountdown -= Time.deltaTime;
-        if(MoveCountdown <= 0 )
+        if(Input.GetKey(KeyCode.E))
         {
-            WinPosX = Random.Range(0, 1920);
-            WinPosY = Random.Range(0, 1080);
-            MoveMainWindowTo(WinPosX, WinPosX);
-            MoveCountdown = 1.27f;
+            MoveWin = !MoveWin;
+            Manager.instance.SetWinFreeze(MoveWin);
+        }
+        if (MoveWin == true)
+        {
+            MoveCountdown -= Time.deltaTime;
+            if (MoveCountdown <= 0)
+            {
+                WinPosX = Random.Range(0, 1920);
+                WinPosY = Random.Range(0, 1080);
+                MoveMainWindowTo(WinPosX, WinPosX);
+                MoveCountdown = 1.27f;
+            }
+        }
+        if(MoveWin == false)
+        {
+            MoveMainWindowTo(960, 540);
         }
     }
     void MoveMainWindowTo(int x, int y)

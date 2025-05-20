@@ -28,6 +28,7 @@ public class Manager : MonoBehaviour
     public bool spoken2;
     public bool cherraDefeated;
     public bool billianBeaten;
+    public bool stillWin;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -254,6 +255,14 @@ public class Manager : MonoBehaviour
     public bool GetBillOver()
     {
         return billianBeaten;
+    }
+    public void SetWinFreeze(bool freezeWin)
+    {
+        stillWin = freezeWin;
+    }
+    public bool GetWinFreeze()
+    {
+        return stillWin;
     }
 
     public void SaveGame()

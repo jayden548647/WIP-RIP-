@@ -282,7 +282,7 @@ public class Player : MonoBehaviour
             roomsCleared++;
             Manager.instance.SetRoom(roomsCleared);
 
-            if (Manager.instance.inEndless != true)
+            if (Manager.instance.inEndless == false)
             {
                 if (roomsCleared == 50)
                 {
@@ -332,6 +332,14 @@ public class Player : MonoBehaviour
             Manager.instance.SetRoom(0 + (5 * Manager.instance.GetRoomSkip()));
             health = 50 * healthMultiplier;
             
+        }
+        if(collision.gameObject.tag == "Guests")
+        {
+            SceneManager.LoadScene(53);
+        }
+        if(collision.gameObject.tag == "LobbyReturn")
+        {
+            SceneManager.LoadScene(1);
         }
         if(collision.gameObject.tag == "FinalGate")
         {

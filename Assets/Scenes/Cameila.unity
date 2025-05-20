@@ -2082,6 +2082,7 @@ MonoBehaviour:
   roomsCleared: 0
   enemyDefeats: 0
   revives: 0
+  highScore: 0
   canDash: 1
   upgradeMenu: {fileID: 0}
   shopMenu: {fileID: 0}
@@ -3264,8 +3265,8 @@ MonoBehaviour:
   virus: {fileID: 8331994468649137195, guid: d432fd10295f49c44b87681e986747ab, type: 3}
   tree: {fileID: 4765564774155027013, guid: 5c027967c6cd6144d84d884f6addb8c5, type: 3}
   minion: {fileID: 7856228819164476754, guid: df5f8b212fc6168479795b36e3c3784f, type: 3}
-  leftpos: {x: 0, y: 0}
-  rightpos: {x: 0, y: 0}
+  minionXpos: {x: 0, y: 0}
+  minionYpos: {x: 0, y: 0}
   rightposition: {fileID: 1210660570}
   leftposition: {fileID: 2025436443}
   dontGetDistracted: {fileID: 1579957388}
@@ -3401,7 +3402,10 @@ MonoBehaviour:
   dialogue:
     name: C4m3il4
     sentences:
-    - D0n'7 G37 D157rac73d
+    - 'D0n''7 G37 D157rac73d
+
+
+      PRESS E TO FREEZE THE WINDOW''S POSITION'
 --- !u!1 &1743022824
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,6 +4598,7 @@ MonoBehaviour:
   WinPosX: 0
   WinPosY: 0
   MoveCountdown: 0
+  MoveWin: 0
 --- !u!1001 &2497719682844750274
 PrefabInstance:
   m_ObjectHideFlags: 0

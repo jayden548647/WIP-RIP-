@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        MusicManager.instance.sfxSource.volume = 0.25f;
         MusicManager.instance.PlaySFX("Dialogue");
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -64,6 +65,6 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Dialogue");
         animator.SetBool("dialogue", false);
-        
+        MusicManager.instance.sfxSource.volume = 1;
     }
 }
