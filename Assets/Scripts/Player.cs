@@ -286,15 +286,16 @@ public class Player : MonoBehaviour
             {
                 if (roomsCleared == 50)
                 {
-                    MusicManager.instance.PlayMusic("ShopMusic");
                     SceneManager.LoadScene(3);
+                    MusicManager.instance.PlayMusic("ShopMusic");
+                    
                 }
                 if (roomsCleared == 99)
                 {
                     SceneManager.LoadScene(6);
                 }
 
-                else
+                if(roomsCleared != 50 && roomsCleared != 99)
                 {
                     rng = Random.Range(14, 53);
                     SceneManager.LoadScene(rng);
