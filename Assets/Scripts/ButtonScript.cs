@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour
 {
     bool endlessUnlocked;
     public TMP_Text endlessText;
+    public GameObject no;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,15 +30,23 @@ public class ButtonScript : MonoBehaviour
     public void StartClick()
     {
         Manager.instance.LoadGame();
-        MusicManager.instance.PlayMusic("LobbyMusic");
-        
-        SceneManager.LoadScene(1);
-        Manager.instance.SetRoom(0);
-        Manager.instance.SetEnemies(0);
-        Manager.instance.SetTempDefense(0);
-        Manager.instance.SetTempDamageBoost(0);
-        Manager.instance.SetEndlessActive(false);
-        TheChaser.instance.EndRun();
+        if (Manager.instance.GetOldSave() == false)
+        {
+            MusicManager.instance.PlayMusic("LobbyMusic");
+
+            SceneManager.LoadScene(1);
+            Manager.instance.SetRoom(0);
+            Manager.instance.SetEnemies(0);
+            Manager.instance.SetTempDefense(0);
+            Manager.instance.SetTempDamageBoost(0);
+            Manager.instance.SetEndlessActive(false);
+            TheChaser.instance.EndRun();
+        }
+        if (Manager.instance.GetOldSave() == true)
+        {
+            no.SetActive(true);
+            
+        }
     }
 
     public void EndlessClick()
@@ -63,6 +72,10 @@ public class ButtonScript : MonoBehaviour
         Manager.instance.SetRoom(0);
         Manager.instance.SetEndlessActive(true);
         TheChaser.instance.BeginRun();
+    }
+    public void ControlClick()
+    {
+        SceneManager.LoadScene(54);
     }
     public void QuitClick()
     {

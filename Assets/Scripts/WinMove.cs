@@ -28,17 +28,18 @@ public class WinMove : MonoBehaviour
         if (MoveWin == true)
         {
             MoveCountdown -= Time.deltaTime;
-            if (MoveCountdown <= 0)
-            {
-                WinPosX = Random.Range(0, 1920);
-                WinPosY = Random.Range(0, 1080);
-                MoveMainWindowTo(WinPosX, WinPosX);
-                MoveCountdown = 1.27f;
-            }
+            
         }
         if(MoveWin == false)
         {
             MoveMainWindowTo(960, 540);
+        }
+        if (MoveCountdown <= 0)
+        {
+            WinPosX = Random.Range(0, 1920);
+            WinPosY = Random.Range(0, 1080);
+            MoveMainWindowTo(WinPosX, WinPosX);
+            MoveCountdown = 1.27f;
         }
     }
     void MoveMainWindowTo(int x, int y)

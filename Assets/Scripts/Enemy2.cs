@@ -7,10 +7,13 @@ public class Enemy2 : MonoBehaviour
     public float health;
     float defeat;
     public float damageBoost;
+    public SpriteRenderer sr;
+    public float damageShift;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        sr = GetComponent<SpriteRenderer>();
         if (Manager.instance.GetDamageBoost() == 0)
         {
             damageBoost = 1 + Manager.instance.GetTempDamageBoost();
@@ -28,6 +31,16 @@ public class Enemy2 : MonoBehaviour
     {
        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         defeat = Manager.instance.GetEnemies();
+        if(damageShift > 0)
+        {
+            damageShift -= Time.deltaTime;
+            sr.color = Color.grey;
+
+        }
+        if(damageShift <= 0)
+        {
+            sr.color = Color.white;
+        }
         
         if (health <= 0)
         {
@@ -43,10 +56,12 @@ public class Enemy2 : MonoBehaviour
         if (collision.gameObject.tag == "Attack")
         {
             health -= 10 * damageBoost;
+            damageShift = 0.2f;
         }
         if(collision.gameObject.tag == "MeleeAttack")
         {
             health -= 10 * damageBoost;
+            damageShift = 0.2f;
         }
     }
 }

@@ -29,6 +29,7 @@ public class Manager : MonoBehaviour
     public bool cherraDefeated;
     public bool billianBeaten;
     public bool stillWin;
+    public bool oldSave;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -264,6 +265,14 @@ public class Manager : MonoBehaviour
     {
         return stillWin;
     }
+    public void SetOldSave(bool cleared)
+    {
+        oldSave = cleared;
+    }
+    public bool GetOldSave()
+    {
+        return oldSave;
+    }
 
     public void SaveGame()
     {
@@ -271,24 +280,33 @@ public class Manager : MonoBehaviour
     }
     public void LoadGame()
     {
-        PlayerData data = SaveSystem.LoadGame();
-        healthBoost = data.healthMultiplier;
-        defenseValue = data.defense;
-        boostValue = data.damageBoost;
-        rangedValue = data.rangeUpgrade;
-        skippedRooms = data.roomSkip;
-        reviveCount = data.revives;
-        enemyBoost = data.enemyMultiplier;
-        bitsCount = data.bits;
-        unlockRevives = data.reviveUnlocked;
-        unlockEnemy = data.enemyUnlocked;
-        unlockEndless = data.endlessUnlocked;
-        unlockBillian = data.billianUnlocked;
-        billianBeaten = data.billianBeaten;
-        highScore = data.highScore;
-        unlockFix = data.fixUnlocked;
-        spoken1 = data.spoken1;
-        spoken2 = data.spoken2;
+        if (SaveSystem.LoadGame() != null)
+        {
+            PlayerData data = SaveSystem.LoadGame();
+            healthBoost = data.healthMultiplier;
+            defenseValue = data.defense;
+            boostValue = data.damageBoost;
+            rangedValue = data.rangeUpgrade;
+            skippedRooms = data.roomSkip;
+            reviveCount = data.revives;
+            enemyBoost = data.enemyMultiplier;
+            bitsCount = data.bits;
+            unlockRevives = data.reviveUnlocked;
+            unlockEnemy = data.enemyUnlocked;
+            unlockEndless = data.endlessUnlocked;
+            unlockBillian = data.billianUnlocked;
+            billianBeaten = data.billianBeaten;
+            highScore = data.highScore;
+            unlockFix = data.fixUnlocked;
+            spoken1 = data.spoken1;
+            spoken2 = data.spoken2;
+            oldSave = data.oldSave;
+        }
+        if(SaveSystem.LoadGame() == null)
+        {
+            Debug.Log("No");
+            oldSave = true;
+        }
     }
 
     public void ClearSave()
@@ -310,7 +328,7 @@ public class Manager : MonoBehaviour
         unlockFix = false;
         spoken1 = false;
         spoken2 = false;
-        
+        oldSave = false;
         SaveSystem.SaveGame(this);
     }
 }

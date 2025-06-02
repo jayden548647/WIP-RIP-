@@ -8,12 +8,15 @@ public class Enemy1 : MonoBehaviour
     public float damageBoost;
     float tempDamageBoost;
     float defeatMultiplier;
+    public SpriteRenderer sr;
+    public float damageShift;
     public TMP_Text damageBuy;
     public DialogueTrigger cantAfford;
     public DialogueTrigger bought;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         if (Manager.instance.GetDamageBoost() == 0)
         {
             damageBoost = 1 + Manager.instance.GetTempDamageBoost();
@@ -37,7 +40,17 @@ public class Enemy1 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        if(damageShift > 0)
+        {
+            damageShift -= Time.deltaTime;
+            sr.color = Color.gray;
+        }
+        if(damageShift <= 0)
+        {
+            sr.color = Color.white;
+        }
+        
         if(health <= 0)
         {
             defeat += 1 * (Manager.instance.GetEnemyMultiplier());
@@ -52,10 +65,12 @@ public class Enemy1 : MonoBehaviour
         if(collision.gameObject.tag == "Attack" || collision.gameObject.tag == "MeleeAttack")
         {
             health -= 10 * damageBoost;
+            damageShift = 0.2f;
         }
         if (collision.gameObject.tag == "EnemyAttack")
         {
             health -= 10;
+            damageShift = 0.2f;
         }
     }
 
